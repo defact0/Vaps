@@ -6,16 +6,10 @@ package com.vaps.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 import java.util.Map;
-<<<<<<< HEAD
-=======
-
 import javax.sql.DataSource;
-
->>>>>>> a4fd403521f99e9862e5570a2987384377c938cb
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import com.vaps.bean.BoardList;
 import com.vaps.bean.Members;
@@ -55,9 +49,6 @@ public class MembersDAO extends SqlSessionDaoSupport implements MemberInterface 
 		return getSqlSession().selectOne("MembersInterface.getMemberInfo", id);
 	}
 	//login - end
-
-	
-	
 	
 	//-----------------------------
 	// 게시판 관련 로직 sql 문장을 요청한다 sqlMapper.xml 으로...
@@ -75,7 +66,6 @@ public class MembersDAO extends SqlSessionDaoSupport implements MemberInterface 
 	public BoardList getContents(int b_num) {
 		return getSqlSession().selectOne("MembersInterface.getContents", b_num);
 	}
-<<<<<<< HEAD
 	
 	public BoardList getContentsModi(int b_num) {
 		// 게시글 내용 한글 수정폼으로 전달
@@ -92,14 +82,10 @@ public class MembersDAO extends SqlSessionDaoSupport implements MemberInterface 
 	public int wrBoard(BoardList wr) {
 		return getSqlSession().insert("MembersInterface.setContents", wr);
 	}
-=======
 	//아이디 중복
 	public int confirmId(String id){
 		return getSqlSession().selectOne("MembersInterface.confirmId", id);
 	}
-	
-	
->>>>>>> a4fd403521f99e9862e5570a2987384377c938cb
 
 	@Override
 	public int delContents(int b_num) {
