@@ -1,7 +1,6 @@
 package com.vaps.action;
 
 import java.util.List;
-
 import com.vaps.bean.BoardList;
 import com.vaps.dao.MembersDAO;
 import com.vaps.userclass.Paging;
@@ -65,6 +64,10 @@ public class BoardListAction {
 		return dao.delContents(bNum);
 	}
 	
+	public int setUpdateCount(int bNum) {
+		// 게시글 조회수 증가
+		return dao.setUpdateCount(bNum);
+	}
 	
 	// add method
 	public void convertDBcontents(BoardList wr){

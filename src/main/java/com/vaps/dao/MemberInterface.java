@@ -17,4 +17,5 @@ public interface MemberInterface {
 	public int delContents(int b_num);
 	public BoardList getContentsModi(int b_num);
 	public int setContentsModi(BoardList wr);
+	public int setUpdateCount(int b_num);
 }

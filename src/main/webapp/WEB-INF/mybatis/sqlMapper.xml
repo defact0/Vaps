@@ -58,4 +58,8 @@
 	<update id="setContentsModi" parameterType="board">
 		UPDATE BOARD SET B_SUB=#{b_sub}, B_CONTENTS=#{b_contents} WHERE B_NUM=#{b_num}
 	</update>
+
+	<update id="setUpdateCount" parameterType="Integer">
+		UPDATE BOARD SET B_READCOUNT=B_READCOUNT+1 WHERE B_NUM=#{b_num}
+	</update>
 </mapper>

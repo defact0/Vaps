@@ -41,8 +41,8 @@
 				</tr>
 				<tr>
 					<td>내용:</td>
-					<td><textarea cols="67" rows="10" name="contents"
-							class="inArea">${blist.b_contents}</textarea></td>
+					<td><pre><textarea cols="67" rows="10" name="contents" 
+							class="inArea">${blist.b_contents}</textarea></pre></td>
 				</tr>
 				<tr>
 					<td colspan=2 align="right">

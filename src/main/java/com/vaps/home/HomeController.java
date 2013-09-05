@@ -179,6 +179,7 @@ public class HomeController {
 		try {
 			if (session != null && session.getAttribute("id") != "") {
 				int bnum = Integer.parseInt(request.getParameter("idx"));
+				ba.setUpdateCount(bnum);//조회수 증가
 				model.addAttribute("blist", ba.getContents(bnum)); // 원글 보기
 				// 세션에 게시물 번호 저장, name=idx
 				session.setAttribute("idx", Integer.parseInt(request.getParameter("idx"))); 
