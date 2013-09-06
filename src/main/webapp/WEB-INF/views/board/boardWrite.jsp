@@ -35,7 +35,7 @@
 			<table>
 				<tr>
 					<td>제목:</td>
-					<td><input class="inSub" type="text" name="sub" class="button"/></td>
+					<td><input class="inSub" type="text" name="sub"/></td>
 				</tr>
 				<tr>
 					<td>내용:</td>

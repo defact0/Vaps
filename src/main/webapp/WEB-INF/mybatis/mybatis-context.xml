@@ -12,7 +12,7 @@
 	<!-- myBatis 내용 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="mapperLocations" value="WEB-INF/mybatis/sqlMapper.xml" />
+		<property name="mapperLocations" value="WEB-INF/mybatis/mapper/*.xml" />
 		<property name="configLocation" value="WEB-INF/mybatis/sqlMap.xml" />
 	</bean>
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
@@ -24,7 +24,25 @@
 	<bean id="membersDao" class="com.vaps.dao.MembersDAO">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
+	
+	<bean id="itemsDao" class="com.vaps.dao.ItemsDAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
 
+	<!-- 파일업로드 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize">
+			<value>10000000</value>
+		</property>
+		<property name="uploadTempDir" ref="uploadDirResource" />
+	</bean>
+
+	<bean id="uploadDirResource" class="org.springframework.core.io.FileSystemResource">
+		<constructor-arg>
+			<value>/fileupload/</value>
+		</constructor-arg>
+	</bean>
 
 
 </beans>

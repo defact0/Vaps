@@ -4,21 +4,26 @@ import java.io.PrintWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+
 import com.vaps.action.BoardListAction;
+import com.vaps.action.ItemsListAction;
 import com.vaps.action.MembersAction;
 import com.vaps.bean.BoardList;
 import com.vaps.bean.Members;
 import com.vaps.dao.MembersDAO;
+import com.vaps.dao.ItemsDAO;
 import com.vaps.userclass.EncryptionEncoding;
 import com.vaps.action.Action;
 import com.vaps.action.ActionForward;
@@ -38,6 +43,9 @@ public class HomeController {
 	@Resource(name = "membersDao")
 	// @Autowired 도 왼쪽과 같은 자동주입이나 권장하지 않는 방법이다. 가능하면 @Resource를 쓰라
 	private MembersDAO membersDao;
+	
+	@Resource(name = "itemsDao")
+	private ItemsDAO itemsDAO;
 
 	// 암호화, 자동주입 등록(mybatis-context.xml에서)
 	// private EncryptionEncoding ee = new EncryptionEncoding();
@@ -145,7 +153,48 @@ public class HomeController {
 		return result;
 	}
 //--------------------------------------------------------------
-// 게시판 작업
+// 판매물품 관리 itemslist
+
+	// db 업로드를 이용해 상품 이미지를 저장하고 불러올 수 있어야 한다.
+	@RequestMapping(value = "/itemslist")
+	public String itemslist(HttpServletRequest request, Model model) throws Exception {
+		// 상품 목록
+		String result = "home";
+
+		try {
+			ItemsListAction item = new ItemsListAction(itemsDAO);
+			
+			if (session != null && session.getAttribute("id") != "") {
+				model.addAttribute("ilist", item.getItemsList());
+				result = "items/itemslist";
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
+	@RequestMapping(value = "/itemsUploadForm")
+	public String itemsUploadForm(){
+		// 상품 등록 폼 이동
+		return "items/itemsUpload";
+	}
+	@RequestMapping(value = "/itemsUpload")
+	public void itemsUpload(HttpServletRequest req, Model model) throws Exception {
+		// 상품 등록 처리
+//			result = "items/itemslist";
+		try {
+			req.setCharacterEncoding("UTF-8");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+//--------------------------------------------------------------
+// 게시판 관리
 	// 게시판(질답용도)
 	@RequestMapping(value = "/board")
 	public String boardList(HttpServletRequest request, Model model) {

@@ -50,9 +50,10 @@
 			<table>
 				<tr>
 					<td>아이디:</td>
-					<td><input class="intxt" type="text" name="id" />
-					<input type="button" name="confirm_id" value="중복확인" 
-								onclick="openConfirmId(this.form)" />
+					<td><input class="intxt" type="text" name="id" /></td>
+					<td>
+					<input type="button" name="confirm_id" value="아이디 확인" 
+								onclick="openConfirmId(this.form)" class="buttonCh"/>
 					</td>
 				</tr>
 				<tr>
@@ -72,8 +73,10 @@
 					<td><input class="intxt" type="text" name="addr" /></td>
 				</tr>
 				<tr>
-					<td colspan=2><input class="button" type="submit" value="회원가입" />
-						<a href="javascript:location.href='/'" class="button">되돌아가기</a></td>
+					<td colspan=2 align="right">
+						<input class="button" type="submit" value="회원가입" />
+						<a href="javascript:location.href='/'" class="button">되돌아가기</a>
+					</td>
 				</tr>
 			</table>
 		</form>

@@ -1,11 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="dao" class="com.vaps.dao.MembersDAO"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 <head>
+<link rel="styleSheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/bt.css" />
+<link rel="styleSheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/style.css" />
+<%--
+	cssë¥¼ ì‚¬ìš©í•´ì„œ ìŠ¤í¬ë¡¤ë°” ì—†ì• ê³ , containerì™€ block divë¥¼ ì‚¬ìš©í•´ ìƒí•˜ ì¢Œìš° ê°€ìš´ë° ì •ë ¬ì„ í–ˆìŒ
+ --%>
+<style type="text/css">
+body{overflow:hidden;}
+#container {
+	width :80px;
+	height:80px;
+	text-align: center;
+	vertical-align: middle;
+	display: table-cell;
+}
+
+#block {
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+}
+</style>	
+	
 <script>
 function windowclose(){
 	close(this);
@@ -16,38 +40,39 @@ function windowclose(){
 </head>
 <body>
 
-<c:if test="${xx == 1}">
-<table width="360" border="0" cellspacing="0" cellpadding="5">
-	<tr align="center">
-	<td height="30">
-		<font size="2">ÀÌ¹Ì »ç¿ë ÁßÀÎ ¾ÆÀÌµğÀÔ´Ï´Ù.</font>
-	</td>
-	</tr>
-</table>
+	<div id="container">
+		<div id="block">
+			<c:if test="${xx == 1}">
+				<table width="360" border="0" cellspacing="0" cellpadding="5">
+					<tr align="center">
+						<td height="30"><font size="2">ì´ë¯¸ <font color="red">ì‚¬ìš©ì¤‘</font>ì¸ ì•„ì´ë””ì…ë‹ˆë‹¤.
+						</font></td>
+					</tr>
+				</table>
 
-<form action="./MemberIDCheckAction" method="post" name="joinFrm" >
-<table width="360" border="0" cellspacing="0" cellpadding="5">
-	<tr>
-	<td align="center">
-		<font size="2">´Ù¸¥ ¾ÆÀÌµğ¸¦ ¼±ÅÃÇÏ¼¼¿ä.</font><p>
-		<input type="text" size="10" maxlength="12" name="id"/>
-		<input type="submit" value="Áßº¹È®ÀÎ" onclick="MemberIDCheckAction()"/>
-	</td>					
-	</tr>
-</table>
-</form>
-</c:if>
-<c:if test="${xx == 0}">
-<table width="360" border="0" cellspacing="0" cellpadding="5">
-	<tr>
-		<td align="center">
-		<font size="2">»ç¿ëÇÒ ¼ö ÀÖ´Â ¾ÆÀÌµğÀÔ´Ï´Ù.</font>
-		<br/><br/>
-		<input type="button" value="´İ±â" onclick="windowclose()" />
-		</td>
-	</tr>
-</table>
-</c:if>
+				<form action="./MemberIDCheckAction" method="post" name="joinFrm">
+					<table width="360" border="0" cellspacing="0" cellpadding="5">
+						<tr>
+							<td align="center"><font size="2">ë‹¤ë¥¸ ì•„ì´ë””ë¥¼ ì„ íƒí•˜ì„¸ìš”.</font>
+								<p>
+									<input type="text" size="10" maxlength="12" name="id" class="intxt" /> 
+										<input type="submit" value="ì¤‘ë³µí™•ì¸" onclick="MemberIDCheckAction()" class="buttonCh" /></td>
+						</tr>
+					</table>
+				</form>
+			</c:if>
+
+			<c:if test="${xx == 0}">
+				<table width="360" border="0" cellspacing="0" cellpadding="5">
+					<tr>
+						<td align="center"><font size="2"><font color="red">ì‚¬ìš©í• ìˆ˜ ìˆëŠ”</font> ì•„ì´ë””ì…ë‹ˆë‹¤.</font> 
+						<br /> <br /> <input type="button" value="ë‹«ê¸°" onclick="windowclose()" class="buttonCh" /></td>
+					</tr>
+				</table>
+			</c:if>
+		</div>
+	</div>
+
 
 </body>
 </html>
