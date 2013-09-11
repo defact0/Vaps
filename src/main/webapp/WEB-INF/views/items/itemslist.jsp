@@ -24,13 +24,13 @@
 			<c:forEach var="ilist" items="${ilist}">
 				<tr height="25">
 					<td width="100" align="center">${ilist.i_category}</td>
-					<td width="200" align="center">${ilist.i_name}</td>
+					<td width="400"><a href="/itemsContentsForm?str=${ilist.i_name}"> ${ilist.i_name} </a></td>
 					<td width="150" align="center">${ilist.i_price}</td>
 				</tr>
 			</c:forEach>
 			<tr>
 				<td colspan=4>
-					게시물 페이징 자리...고민중
+					<a href="/itemsContentsForm"> itemsContentsForm </a>
 				</td>
 			</tr>
 		</table>

@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ItemsInterface">
-	<resultMap type="items" id="items" />
+	<resultMap type="items" id="items">
+		<result property="I_DESCRIPTION" column="I_DESCRIPTION" jdbcType="NCLOB" javaType="java.lang.String" /> 
+		<result property="I_PIC" column="I_PIC" jdbcType="BLOB" javaType="java.lang.String" /> 
+	</resultMap>
+	<resultMap type="al" id="al" />
 
 	<select id="getItemsList" resultType="items">
-			SELECT * FROM ITEMS
+	SELECT I_NAME, I_CATEGORY, I_PRICE FROM ITEMS
+	</select>
+	<insert id="setItems" parameterType="items">
+	INSERT INTO ITEMS(I_NAME, I_CATEGORY, I_PRICE, I_PIC) VALUES(#{i_name}, #{i_category}, #{i_price}, #{i_pic, jdbcType=BLOB})
+	</insert>
+	<select id="getContents" resultType="items" parameterType="java.lang.String">
+	SELECT I_NAME, I_CATEGORY, I_PRICE, I_PIC FROM ITEMS WHERE I_NAME=#{i_name}
 	</select>
 </mapper>

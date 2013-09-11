@@ -31,8 +31,7 @@
 	<br />
 	<div style="padding: 1px 20px 30px 60px;">
 		<h1> 파일 업로드</h1>
-		<form action="/itemsUpload" method="post" enctype="multipart/form-data" onsubmit="return formCheck();">
-
+		<form action="/itemsUpload" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td>상품이름</td>
@@ -57,7 +56,7 @@
 						 
 						<div class="file_input_div">
 						<input type="button" value="파일" class="button" />
-						<input type="file" class="file_input_hidden" onchange="javascript: document.getElementById('fileName').value = this.value" />
+						<input type="file" name="i_pic" class="file_input_hidden" onchange="javascript: document.getElementById('fileName').value = this.value" />
 						</div>
 					</td>
 				</tr>

@@ -1,13 +1,11 @@
 package com.vaps.home;
 
 import java.io.PrintWriter;
-import java.io.IOException;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,17 +15,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.vaps.action.BoardListAction;
 import com.vaps.action.ItemsListAction;
 import com.vaps.action.MembersAction;
 import com.vaps.bean.BoardList;
+import com.vaps.bean.Items;
 import com.vaps.bean.Members;
 import com.vaps.dao.MembersDAO;
 import com.vaps.dao.ItemsDAO;
 import com.vaps.userclass.EncryptionEncoding;
-import com.vaps.action.Action;
-import com.vaps.action.ActionForward;
-import com.vaps.action.MemberIDCheckAction;
 
 
 /**
@@ -181,19 +179,81 @@ public class HomeController {
 		// 상품 등록 폼 이동
 		return "items/itemsUpload";
 	}
+
+	//파일 업로드 기능 구현중
+	//업로드된 이미지를 웹으로 다시 불러오는 작업을 해야함
 	@RequestMapping(value = "/itemsUpload")
-	public void itemsUpload(HttpServletRequest req, Model model) throws Exception {
-		// 상품 등록 처리
-//			result = "items/itemslist";
+	public void itemsUpload(HttpServletRequest req, Model model, HttpServletResponse res) {
 		try {
 			req.setCharacterEncoding("UTF-8");
+			res.setContentType("text/html;charset=UTF-8"); 
+			ItemsListAction item = new ItemsListAction(itemsDAO);
+			Items items = new Items();
+			
+			// fileUpload setting
+			String uploadPath = req.getRealPath("upload"); // 여기 위치가 궁금하다. webapp/upload가 맞는가?
+			int fileSize = 10*1024*1024; // 10Mbyte
+			
+			if (session != null && session.getAttribute("id") != "") {
+				
+				// fileUpload logic
+				MultipartRequest multi=new MultipartRequest(req,
+															uploadPath,
+															fileSize,
+															"utf-8",
+															new DefaultFileRenamePolicy());
+				Enumeration files=multi.getFileNames();
+				String file=(String)files.nextElement();
+				String fileName=multi.getFilesystemName(file);
+				String fileOriginalName=multi.getOriginalFileName(file);
+				
+				System.out.println(fileName);
+				System.out.println(fileOriginalName);
+				
+				items.setI_name(multi.getParameter("i_name"));
+				items.setI_category(multi.getParameter("i_category"));
+				items.setI_price(Integer.parseInt(multi.getParameter("i_price")));
+				
+				System.out.println(items.getI_name());
+				System.out.println(items.getI_category());
+				System.out.println(items.getI_price());
+				PrintWriter out = res.getWriter();
+				//임시적으로 막아두었음
+//				if (item.setItems(items) == 1) {
+//					out.println("<script>");
+//					out.println("location.href='/itemslist'");
+//					out.println("</script>");
+//				} else {
+//					out.println("<script>");
+//					out.println("alert('상품등록 실패')");
+//					out.println("location.href='/itemslist'");
+//					out.println("</script>");
+//				}
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+
+	@RequestMapping(value = "/itemsContentsForm")
+	public String itemsContentsForm(HttpServletRequest request, Model model) {
+		// 상품 상세 보기
+		session = request.getSession();
+		ItemsListAction item = new ItemsListAction(itemsDAO);
+		try {
+			request.setCharacterEncoding("UTF-8");
+			if (session != null && session.getAttribute("id") != "") {
+				String i_name = request.getParameter("str");
+				model.addAttribute("ilist", item.getContents(i_name)); // 원글 보기
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "items/itemsContent";
+	}
 	
-	
-//--------------------------------------------------------------
+
+	//--------------------------------------------------------------
 // 게시판 관리
 	// 게시판(질답용도)
 	@RequestMapping(value = "/board")
