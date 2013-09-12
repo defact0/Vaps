@@ -28,11 +28,6 @@
 					<td width="150" align="center">${ilist.i_price}</td>
 				</tr>
 			</c:forEach>
-			<tr>
-				<td colspan=4>
-					<a href="/itemsContentsForm"> itemsContentsForm </a>
-				</td>
-			</tr>
 		</table>
 	</div>
 </body>

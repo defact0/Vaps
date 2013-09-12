@@ -11,9 +11,12 @@
 	SELECT I_NAME, I_CATEGORY, I_PRICE FROM ITEMS
 	</select>
 	<insert id="setItems" parameterType="items">
-	INSERT INTO ITEMS(I_NAME, I_CATEGORY, I_PRICE, I_PIC) VALUES(#{i_name}, #{i_category}, #{i_price}, #{i_pic, jdbcType=BLOB})
+	INSERT INTO ITEMS VALUES(item_seq.NEXTVAL, #{i_name}, #{i_category},#{i_price}, #{i_pic}, #{i_description})
+	</insert>
+	<insert id="setItemsTored" parameterType="items">
+	INSERT INTO ITEMSTORED VALUES(#{is_name},#{is_count})
 	</insert>
 	<select id="getContents" resultType="items" parameterType="java.lang.String">
-	SELECT I_NAME, I_CATEGORY, I_PRICE, I_PIC FROM ITEMS WHERE I_NAME=#{i_name}
+	SELECT * FROM ITEMS, ITEMSTORED WHERE I_NAME=#{i_name}
 	</select>
 </mapper>

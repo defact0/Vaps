@@ -7,13 +7,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 </head>
 <body>
-	<img src="<%=request.getContextPath()%>/images/logo.png"/>
+	<img src="/images/logo.png"/>
 </body>
 </html>
-<%-- 
+<%--[1] 
 	이미지 불러오기 방법 : http://www.okjsp.net/bbs?seq=135949
 	이미지 위치 local : \src\main\webapp\images
 	
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<img src="<%=request.getContextPath()%>/images/logo.png"/>
+	
+	[2]
+	spring/appServlet/servlet-context.xml 에서
+	<resources mapping="/images/**" location="/images/" />
+	<resources mapping="/upload/**" location="/upload/" />
+	등록하면 됨
  --%>

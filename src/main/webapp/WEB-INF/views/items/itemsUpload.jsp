@@ -50,6 +50,10 @@
 					<td><input class="button" id="fileTxt" name="is_count"/></td>
 				</tr>
 				<tr>
+					<td>설명</td>
+					<td><textarea cols="67" rows="10"  name="i_description" class="inArea"></textarea></td>
+				</tr>
+				<tr>
 					<td>이미지</td>
 					<td>
 						<input type="text" id="fileName" class="file_input_textbox" readonly="readonly">

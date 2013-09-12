@@ -179,9 +179,6 @@ public class HomeController {
 		// 상품 등록 폼 이동
 		return "items/itemsUpload";
 	}
-
-	//파일 업로드 기능 구현중
-	//업로드된 이미지를 웹으로 다시 불러오는 작업을 해야함
 	@RequestMapping(value = "/itemsUpload")
 	public void itemsUpload(HttpServletRequest req, Model model, HttpServletResponse res) {
 		try {
@@ -191,7 +188,7 @@ public class HomeController {
 			Items items = new Items();
 			
 			// fileUpload setting
-			String uploadPath = req.getRealPath("upload"); // 여기 위치가 궁금하다. webapp/upload가 맞는가?
+			String uploadPath = req.getRealPath("/upload");
 			int fileSize = 10*1024*1024; // 10Mbyte
 			
 			if (session != null && session.getAttribute("id") != "") {
@@ -207,28 +204,30 @@ public class HomeController {
 				String fileName=multi.getFilesystemName(file);
 				String fileOriginalName=multi.getOriginalFileName(file);
 				
-				System.out.println(fileName);
-				System.out.println(fileOriginalName);
-				
-				items.setI_name(multi.getParameter("i_name"));
-				items.setI_category(multi.getParameter("i_category"));
-				items.setI_price(Integer.parseInt(multi.getParameter("i_price")));
-				
-				System.out.println(items.getI_name());
-				System.out.println(items.getI_category());
-				System.out.println(items.getI_price());
+				//System.out.println(fileName); //서버에 저장되는 이름
+				//System.out.println(fileOriginalName); // 업로드될 파일 이름
+
+				// 상품정보 items객체에 저장
+				items.setIs_name(multi.getParameter("i_name"));
+				items.setI_name(multi.getParameter("i_name")); //상품이름
+				items.setI_category(multi.getParameter("i_category")); //카테고리
+				items.setI_price(Integer.parseInt(multi.getParameter("i_price"))); //가격
+				items.setIs_count(Integer.parseInt(multi.getParameter("is_count")));// 재고수량
+				items.setI_description(multi.getParameter("i_description"));// 설명(제품설명)
+				items.setI_pic(fileName);// 이미지
+
 				PrintWriter out = res.getWriter();
-				//임시적으로 막아두었음
-//				if (item.setItems(items) == 1) {
-//					out.println("<script>");
-//					out.println("location.href='/itemslist'");
-//					out.println("</script>");
-//				} else {
-//					out.println("<script>");
-//					out.println("alert('상품등록 실패')");
-//					out.println("location.href='/itemslist'");
-//					out.println("</script>");
-//				}
+				if (item.setItems(items) == 1) { //insert
+					item.setItemsTored(items); //재고 등록
+					out.println("<script>");
+					out.println("location.href='/itemslist'");
+					out.println("</script>");
+				} else { //failed
+					out.println("<script>");
+					out.println("alert('상품등록 실패')");
+					out.println("location.href='/itemslist'");
+					out.println("</script>");
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

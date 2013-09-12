@@ -15,11 +15,41 @@
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 	<br />
 	<div style="padding: 1px 20px 30px 60px;">
-	${ilist.i_name}<br/>
-	${ilist.i_category}<br/>
-	${ilist.i_price}<br/>
-	${ilist.i_pic}<br/>	
-				<a href="/itemslist" class="button">목록</a>
+		<table>
+			<tr>
+				<td bgcolor="#A6CAF0" align="center">i_name:</td>
+				<td>${ilist.i_name}</td>
+			</tr>
+			<tr>
+				<td bgcolor="#A6CAF0" align="center">i_category:</td>
+				<td>${ilist.i_category}</td>
+			</tr>
+			<tr>
+				<td bgcolor="#A6CAF0" align="center">i_price:</td>
+				<td>${ilist.i_price}</td>
+			</tr>
+			<tr>
+				<td bgcolor="#A6CAF0" align="center">i_pic:</td>
+				<td>${ilist.i_pic}</td>
+			</tr>
+			<tr>
+				<td bgcolor="#A6CAF0" align="center">i_description:</td>
+				<td>${ilist.i_description}</td>
+			</tr>
+			<tr>
+				<td bgcolor="#A6CAF0" align="center">is_name:</td>
+				<td>${ilist.is_name}</td>
+			</tr>
+			<tr>
+				<td bgcolor="#A6CAF0" align="center">is_count:</td>
+				<td>${ilist.is_count}</td>
+			</tr>
+			<tr>
+				<td colspan="2"><img src="/upload/${ilist.i_pic}" /></td>
+			</tr>
+		</table>
+
+		<a href="/itemslist" class="button">목록</a>
 
 	<br>
 </div>
