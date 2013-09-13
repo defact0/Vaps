@@ -14,5 +14,7 @@ public interface ItemsInterface {
 	public Items getItemsModi(int num); //상품 수정
 	public int setItemsModi(Items item); //수정한 상품 저장
 	InputStream getPicture(Integer itemId);
+	public int setItemsUpdate(Items item); //상품정보 update
+	public int setItemsToredUpdate(Items item); //상품재고 update
 
 }

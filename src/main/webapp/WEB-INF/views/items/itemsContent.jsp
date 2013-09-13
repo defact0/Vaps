@@ -50,6 +50,7 @@
 		</table>
 
 		<a href="/itemslist" class="button">목록</a>
+		<a href="/itemsModifyForm?str=${ilist.i_name}" class="button">수정</a>
 
 	<br>
 </div>

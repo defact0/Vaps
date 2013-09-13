@@ -6,6 +6,7 @@ DEFAULT TABLESPACE users
 TEMPORARY TABLESPACE temp;
 -- 권한 부여 ( 뷰 생성, 시노민 etc)
 GRANT connect, resource, create synonym, create view to vaps; 
+grant create trigger to vaps;
 
 ------------------------------------------------------------------
 -- vaps 계정에 접속해서 DB구축
@@ -121,4 +122,16 @@ INSERT INTO ITEMS VALUES('도련님도시락','도시락', 3200);
  
 -- 판매물품 재료 자료
 INSERT INTO ITEMSORED VALUES('도련님도시락',1000);
+
+
+----------------
+-- 트리거 (판매물품 이름 수정)
+CREATE OR REPLACE TRIGGER trgITEMS
+ AFTER UPDATE ON ITEMS FOR EACH ROW
+BEGIN
+  UPDATE ITEMSTORED
+  SET IS_NAME = :new.I_NAME
+  WHERE IS_NAME = :old.I_NAME;
+END; 
+
  

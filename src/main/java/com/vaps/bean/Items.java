@@ -10,6 +10,14 @@ public class Items {
 	private String i_description; //상품설명
 	private String is_name; //재고상품(is_name)
 	private int is_count; //재고상품수량(is_count)
+	private String str; // 검색을 위한
+	
+	public String getStr() {
+		return str;
+	}
+	public void setStr(String str) {
+		this.str = str;
+	}
 	public String getI_name() {
 		return i_name;
 	}
