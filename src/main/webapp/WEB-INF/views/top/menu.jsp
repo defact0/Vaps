@@ -18,7 +18,6 @@
 	content="Slide Down Box Menu with jQuery and CSS3" />
 <meta name="keywords"
 	content="jquery, css3, sliding, box, menu, cube, navigation, portfolio, thumbnails" />
-<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
 <link rel="styleSheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/style.css" />
 </head>
