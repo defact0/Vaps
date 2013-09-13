@@ -36,14 +36,11 @@ import com.vaps.userclass.EncryptionEncoding;
 // members라는 세션영역에 저장
 // jsp에서 ${members.id} 이런식으로 세션영역의 변수를 호출할 수 있다. sessionScope.members.id 대신함
 public class HomeController {
-	private HttpSession session;
+	static HttpSession session;
 	// mybatis-context.xml 에서 연결되었다.
 	@Resource(name = "membersDao")
 	// @Autowired 도 왼쪽과 같은 자동주입이나 권장하지 않는 방법이다. 가능하면 @Resource를 쓰라
 	private MembersDAO membersDao;
-	
-	@Resource(name = "itemsDao")
-	private ItemsDAO itemsDAO;
 
 	// 암호화, 자동주입 등록(mybatis-context.xml에서)
 	// private EncryptionEncoding ee = new EncryptionEncoding();
@@ -150,108 +147,6 @@ public class HomeController {
 	    
 		return result;
 	}
-//--------------------------------------------------------------
-// 판매물품 관리 itemslist
-
-	// db 업로드를 이용해 상품 이미지를 저장하고 불러올 수 있어야 한다.
-	@RequestMapping(value = "/itemslist")
-	public String itemslist(HttpServletRequest request, Model model) throws Exception {
-		// 상품 목록
-		String result = "home";
-
-		try {
-			ItemsListAction item = new ItemsListAction(itemsDAO);
-			
-			if (session != null && session.getAttribute("id") != "") {
-				model.addAttribute("ilist", item.getItemsList());
-				result = "items/itemslist";
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return result;
-	}
-
-	@RequestMapping(value = "/itemsUploadForm")
-	public String itemsUploadForm(){
-		// 상품 등록 폼 이동
-		return "items/itemsUpload";
-	}
-	@RequestMapping(value = "/itemsUpload")
-	public void itemsUpload(HttpServletRequest req, Model model, HttpServletResponse res) {
-		try {
-			req.setCharacterEncoding("UTF-8");
-			res.setContentType("text/html;charset=UTF-8"); 
-			ItemsListAction item = new ItemsListAction(itemsDAO);
-			Items items = new Items();
-			
-			// fileUpload setting
-			String uploadPath = req.getRealPath("/upload");
-			int fileSize = 10*1024*1024; // 10Mbyte
-			
-			if (session != null && session.getAttribute("id") != "") {
-				
-				// fileUpload logic
-				MultipartRequest multi=new MultipartRequest(req,
-															uploadPath,
-															fileSize,
-															"utf-8",
-															new DefaultFileRenamePolicy());
-				Enumeration files=multi.getFileNames();
-				String file=(String)files.nextElement();
-				String fileName=multi.getFilesystemName(file);
-				String fileOriginalName=multi.getOriginalFileName(file);
-				
-				//System.out.println(fileName); //서버에 저장되는 이름
-				//System.out.println(fileOriginalName); // 업로드될 파일 이름
-
-				// 상품정보 items객체에 저장
-				items.setIs_name(multi.getParameter("i_name"));
-				items.setI_name(multi.getParameter("i_name")); //상품이름
-				items.setI_category(multi.getParameter("i_category")); //카테고리
-				items.setI_price(Integer.parseInt(multi.getParameter("i_price"))); //가격
-				items.setIs_count(Integer.parseInt(multi.getParameter("is_count")));// 재고수량
-				items.setI_description(multi.getParameter("i_description"));// 설명(제품설명)
-				items.setI_pic(fileName);// 이미지
-
-				PrintWriter out = res.getWriter();
-				if (item.setItems(items) == 1) { //insert
-					item.setItemsTored(items); //재고 등록
-					out.println("<script>");
-					out.println("location.href='/itemslist'");
-					out.println("</script>");
-				} else { //failed
-					out.println("<script>");
-					out.println("alert('상품등록 실패')");
-					out.println("location.href='/itemslist'");
-					out.println("</script>");
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	@RequestMapping(value = "/itemsContentsForm")
-	public String itemsContentsForm(HttpServletRequest request, Model model) {
-		// 상품 상세 보기
-		session = request.getSession();
-		ItemsListAction item = new ItemsListAction(itemsDAO);
-		try {
-			request.setCharacterEncoding("UTF-8");
-			if (session != null && session.getAttribute("id") != "") {
-				String i_name = request.getParameter("str");
-				model.addAttribute("ilist", item.getContents(i_name)); // 원글 보기
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "items/itemsContent";
-	}
-	
-
 	//--------------------------------------------------------------
 // 게시판 관리
 	// 게시판(질답용도)
