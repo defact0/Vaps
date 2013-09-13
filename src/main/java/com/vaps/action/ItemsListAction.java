@@ -36,9 +36,18 @@ public class ItemsListAction {
 		// 상품 상세 정보 수정 textarea 문제때문에 변환 필요
 		Items item = dao.getContents(i_name); 
 		String str = item.getI_description();
-		str = str.replaceAll("<br>", "\r\n");
-		str = str.replaceAll("&nbsp;", "\u0020");
-		item.setI_description(str);
+		try{
+			if(str==null){//str이 null일때
+				str = "";
+				item.setI_description(str);
+			}else{
+				str = str.replaceAll("<br>", "\r\n");
+				str = str.replaceAll("&nbsp;", "\u0020");
+				item.setI_description(str);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		return item;
 	}
 	public int setItemsUpdate(Items item) {
