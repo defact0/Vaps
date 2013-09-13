@@ -29,6 +29,16 @@ public class ItemsDAO extends SqlSessionDaoSupport implements ItemsInterface {
 		return getSqlSession().insert("ItemsInterface.setItemsTored", item);
 	}
 	@Override
+	public int setItemsUpdate(Items item) {
+		// 상품정보Update
+		return getSqlSession().update("ItemsInterface.setItemsUpdate", item);
+	}
+	@Override
+	public int setItemsToredUpdate(Items item) {
+		// 상품 재고Update
+		return getSqlSession().update("ItemsInterface.setItemsToredUpdate", item);
+	}
+	@Override
 	public Items getContents(String i_name) {
 		// 상품 정보 가져오기
 		return getSqlSession().selectOne("ItemsInterface.getContents", i_name);

@@ -29,7 +29,26 @@ public class ItemsListAction {
 	}
 	public Items getContents(String i_name){
 		// 상품 상세 정보
-		return dao.getContents(i_name);
+		Items item = dao.getContents(i_name); 
+		return item;
+	}
+	public Items getContentsModi(String i_name){
+		// 상품 상세 정보 수정 textarea 문제때문에 변환 필요
+		Items item = dao.getContents(i_name); 
+		String str = item.getI_description();
+		str = str.replaceAll("<br>", "\r\n");
+		str = str.replaceAll("&nbsp;", "\u0020");
+		item.setI_description(str);
+		return item;
+	}
+	public int setItemsUpdate(Items item) {
+		// 상품update
+		convertDBcontents(item); // 내용저장 처리
+		return dao.setItemsUpdate(item);
+	}
+	public int setItemsToredUpdate(Items item){
+		// 상품재고update
+		return dao.setItemsToredUpdate(item);
 	}
 	
 	// add method

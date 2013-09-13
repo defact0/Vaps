@@ -16,7 +16,13 @@
 	<insert id="setItemsTored" parameterType="items">
 	INSERT INTO ITEMSTORED VALUES(#{is_name},#{is_count})
 	</insert>
+	<update id="setItemsUpdate" parameterType="items">
+	UPDATE ITEMS SET I_NAME=#{i_name}, I_CATEGORY=#{i_category}, I_PRICE=#{i_price}, I_DESCRIPTION=#{i_description} WHERE I_NAME=#{str} 
+	</update>
+	<update id="setItemsToredUpdate" parameterType="items">
+	UPDATE ITEMSTORED SET IS_COUNT=#{is_count} WHERE IS_NAME=#{str} 
+	</update>
 	<select id="getContents" resultType="items" parameterType="java.lang.String">
-	SELECT * FROM ITEMS, ITEMSTORED WHERE I_NAME=#{i_name}
+	SELECT * FROM ITEMS, ITEMSTORED WHERE I_NAME=#{i_name} AND I_NAME=IS_NAME
 	</select>
 </mapper>
