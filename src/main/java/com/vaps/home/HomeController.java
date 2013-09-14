@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -78,6 +79,10 @@ public class HomeController {
 	public String developer() {
 		return "about/developer";
 	}
+	@RequestMapping(value = "/info")
+	public String info() {
+		return "member/info";
+	}
 	//No mapping found for HTTP request with URI [/favicon.ico] solution
 	@RequestMapping(value = "/favicon.ico")
 	public void favicon( HttpServletRequest request, HttpServletResponse reponse ) {
@@ -114,7 +119,7 @@ public class HomeController {
 	}
 
 	// login 성공
-	@RequestMapping(value = "access")
+	@RequestMapping(value = "/access")
 	public String mInfo(HttpServletRequest request, Model model) throws Exception {
 		String result = "home";
 
@@ -157,6 +162,11 @@ public class HomeController {
 	    
 		return result;
 	}
+	// logout
+		@RequestMapping(value="/logout")
+		public String logout(){
+			return "login/logout";
+		}
 	//--------------------------------------------------------------
 // 게시판 관리
 	// 게시판(질답용도)

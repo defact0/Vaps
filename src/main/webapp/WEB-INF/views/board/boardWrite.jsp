@@ -28,8 +28,9 @@
 <body>
 	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
-		<br/>
+
 	<div style="padding: 1px 20px 30px 60px;">
+		<h1>>  Free Board</h1>
 		<form action="/boardWrite" name="writeFrm" method="post"
 			onsubmit="return formCheck();">
 			<table>
