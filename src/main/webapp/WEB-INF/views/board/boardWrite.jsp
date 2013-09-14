@@ -30,7 +30,7 @@
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 
 	<div style="padding: 1px 20px 30px 60px;">
-		<h1>>  Free Board</h1>
+		<img src="/images/FreeBoard.jpg"/>
 		<form action="/boardWrite" name="writeFrm" method="post"
 			onsubmit="return formCheck();">
 			<table>

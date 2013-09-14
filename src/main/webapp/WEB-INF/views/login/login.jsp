@@ -28,6 +28,7 @@
 <body>
 	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
+	<br/>
 	<%-- 
 	DIV 영역 안쪽 여백 설정 
 	http://xxwony.egloos.com/55671
@@ -35,7 +36,7 @@
 	각각의 여백을 지정하지 않고, 하나만 쓰면 사방에 동일한 여백이 적용됩니다.
  --%>
 	<div style="padding: 1px 20px 30px 60px;">
-		<h1>> Sign in</h1>
+		<img src="/images/signIn.jpg"/>
 		<form action="access" name="LogFrm" method="post"
 			onsubmit="return formCheck();">
 			<table>

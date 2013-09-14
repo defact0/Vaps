@@ -15,7 +15,7 @@
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 
 	<div style="padding: 1px 20px 30px 60px;">
-	<h1>>  Free Board</h1>
+	<img src="/images/FreeBoard.jpg"/>
 	<table width="820" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
 		<tr height="30">
 			<td width="100" bgcolor="pink" align="center">&nbsp;NUM</td>

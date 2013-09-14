@@ -69,5 +69,4 @@
     <servlet-name>default</servlet-name>
     <url-pattern>*.txt</url-pattern>
 </servlet-mapping>
-  
 </web-app>

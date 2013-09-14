@@ -11,9 +11,9 @@
 <body>
 	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
-
+<br/>
 	<div style="padding: 1px 20px 30px 60px;">
-		<h1>> Introduce the website developer</h1>
+		<img src="/images/AboutDeveloper.jpg"/><br/>
 		name : lee jungdo<br/>
 		mail : <a href="mailto:ejungdo@naver.com">ejungdo@naver.com</a><br/>
 		github : <a href="https://github.com/defact0">https://github.com/defact0</a><br/>

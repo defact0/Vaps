@@ -85,9 +85,9 @@ public class HomeController {
 	}
 	//No mapping found for HTTP request with URI [/favicon.ico] solution
 	@RequestMapping(value = "/favicon.ico")
-	public void favicon( HttpServletRequest request, HttpServletResponse reponse ) {
+	public void favicon(HttpServletResponse reponse ) {
 		try {
-			reponse.sendRedirect("/resources/favicon.ico");
+			reponse.sendRedirect("/images/favicon.ico");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

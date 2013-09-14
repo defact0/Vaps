@@ -42,9 +42,9 @@
 <body>
 	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
-
+<br/>
 	<div style="padding: 1px 20px 30px 60px;">
-		<h1>> Sign up</h1>
+		<img src="/images/signUp.jpg"/>
 		<form action="memJoin" name="joinFrm" method="post"
 			onsubmit="return formCheck();">
 			<table>

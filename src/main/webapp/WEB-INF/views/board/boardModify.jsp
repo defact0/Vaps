@@ -33,7 +33,7 @@
 	<form action="/boardModiContent?id=${blist.b_id}" name="modiFrm" method="post"
 		onsubmit="return formCheck();">
 		<div style="padding: 1px 20px 30px 60px;">
-			<h1>>  Free Board</h1>
+			<img src="/images/FreeBoard.jpg"/>
 			<table>
 				<tr>
 					<td>제목:</td>
