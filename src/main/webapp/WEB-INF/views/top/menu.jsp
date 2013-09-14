@@ -5,8 +5,7 @@
 	<%@include file="menu.jsp" %>
 	이런식으로 활용한다.
  --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -22,36 +21,17 @@
 	href="${pageContext.request.contextPath}/css/style.css" />
 </head>
 <body>
- 
-	<ul id="navigation">
 
-		<li><a href="/">HOME</a></li>
+   <c:if test="${members.m_auth==0}" var="result">
+  	 <%@include file="/WEB-INF/views/top/menuNormal.jsp"%>
+   </c:if>
+   <c:if test="${members.m_auth==1}" var="result">
+  	 <%@include file="/WEB-INF/views/top/menuAdmin.jsp"%>
+   </c:if>
+   <c:if test="${members.m_auth==null}" var="result">
+  	 <%@include file="/WEB-INF/views/top/menuGuest.jsp"%>
+   </c:if>   
 
-		<li class="sub"><a href="#">MEMBER</a>
-			<ul>
-				<li><a href="/login">밥스 로그인</a></li>
-				<li><a href="/join">밥스 가입</a></li>
-			</ul></li>
-
-		<li class="sub"><a href="#">VAPS SHOP</a>
-			<ul>
-				<li><a href="/itemslist">상품리스트</a></li>
-				<li><a href="/itemsUploadForm">상품등록</a></li>
-				<li><a href="#">도시락</a></li>
-				<li><a href="#">비빔밥</a></li>
-				<li><a href="#">추천도시락</a></li>
-				<li><a href="#">인기도시락</a></li>
-			</ul></li>
-			
-		<li><a href="/board">BOARD</a></li>
-		
-		<li class="sub"><a href="#">ABOUT</a>
-			<ul>
-				<li><a href="/what">VAPS(밥스)란?</a></li>
-				<li><a href="/developer">개발자 소개</a></li>
-			</ul></li>
-
-	</ul>
  
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.vaps.home;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -76,6 +77,15 @@ public class HomeController {
 	@RequestMapping(value = "/developer")
 	public String developer() {
 		return "about/developer";
+	}
+	//No mapping found for HTTP request with URI [/favicon.ico] solution
+	@RequestMapping(value = "/favicon.ico")
+	public void favicon( HttpServletRequest request, HttpServletResponse reponse ) {
+		try {
+			reponse.sendRedirect("/resources/favicon.ico");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 // --------------------------------------------------------------
