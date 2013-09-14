@@ -15,7 +15,7 @@
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 	<br />
 	<div style="padding: 1px 20px 30px 60px;">
-		<table id="two_table">
+		<table id="two_table" width="820" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
 			<tr bgcolor="cyan" align="center" height="35">
 				<td width="70">번호</td>
 				<td width="400">제목</td>
@@ -33,11 +33,11 @@
 				</tr>
 			</c:forEach>
 			<tr>
-				<td colspan=4>
+				<td colspan=4  style='border-left:none;border-right:none;border-top:solid #000000 0.4pt;border-bottom:none;'>
 					<center>${paging }<p>
 					</center>
 				</td>
-				<td>
+				<td style='border-left:none;border-right:none;border-top:solid #000000 0.4pt;border-bottom:none;'>
 					<a href="/boardWriteForm" class="button">글쓰기</a>
 				</td>
 			</tr>

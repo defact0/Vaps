@@ -51,7 +51,7 @@
 				</tr>
 				<tr>
 					<td>상품사진</td>
-					<td><img src="/upload/${ilist.i_pic}" width="250" height="120"></td>
+					<td>&nbsp;<img src="/upload/${ilist.i_pic}" width="250" height="120"></td>
 				</tr>
 				<tr>
 					<td>상품설명</td>

@@ -15,33 +15,32 @@
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 	<br />
 	<div style="padding: 1px 20px 30px 60px;">
-	<table>
+	<table width="820" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
 		<tr height="30">
-			<td width="100" bgcolor="pink" align="center">NUM</td>
-			<td colspan="5">${blist.b_num}</td>
+			<td width="100" bgcolor="pink" align="center">&nbsp;NUM</td>
+			<td colspan="5">&nbsp;${blist.b_num}</td>
 		</tr>
 		<tr height="30">
-			<td bgcolor="pink" align="center">WRITER</td>
-			<td width="150">${blist.b_id}</td>
-			<td bgcolor="pink" align="center" width="90">DATE</td>
-			<td width="100" align="center">${blist.b_date}</td>
-			<td bgcolor="pink" align="center" width="80">COUNT</td>
-			<td align="center" width="20">${blist.b_readcount}</td>
+			<td bgcolor="pink" align="center">&nbsp;WRITER</td>
+			<td width="150">&nbsp;${blist.b_id}</td>
+			<td bgcolor="pink" align="center" width="90">&nbsp;DATE</td>
+			<td width="100" align="center">&nbsp;${blist.b_date}</td>
+			<td bgcolor="pink" align="center" width="80">&nbsp;COUNT</td>
+			<td align="center" width="50">&nbsp;${blist.b_readcount}</td>
 		</tr>
 		<tr height="30">
-			<td bgcolor="pink" align="center">TITLE</td>
-			<td colspan="5">${blist.b_sub}</td>
+			<td bgcolor="pink" align="center">&nbsp;TITLE</td>
+			<td colspan="5">&nbsp;${blist.b_sub}</td>
 		</tr>
 		<tr height="200">
-			<td bgcolor="pink" align="center">CONTENTS</td>
-			<td colspan="5">${blist.b_contents}</td>
+			<td bgcolor="pink" align="center">&nbsp;CONTENTS</td>
+			<td colspan="5">&nbsp;${blist.b_contents}</td>
 		</tr>
 		<tr>
-			<td colspan="6">
+			<td style='border-left:none;border-right:none;border-top:solid #000000 0.4pt;border-bottom:none;'>
 			<a href="/board" class="button">목록</a>
-			<%--
-			<a href="/boardModiContentForm?idx=${blist.b_num}&con=${blist.b_contents}" class="button">수정</a>
-			 --%>
+			</td>
+			<td colspan="5" align="right" style='border-left:none;border-right:none;border-top:solid #000000 0.4pt;border-bottom:none;'>
 			<a href="/boardModiContentForm?idx=${blist.b_num}" class="button">수정</a>
 			<a href="/boardDelContent?id=${blist.b_id}" class="button">삭제</a>
 			</td>
