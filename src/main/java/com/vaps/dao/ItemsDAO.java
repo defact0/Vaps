@@ -2,6 +2,7 @@ package com.vaps.dao;
 
 import java.io.InputStream;
 import java.util.List;
+
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.support.lob.LobHandler;
@@ -49,9 +50,9 @@ public class ItemsDAO extends SqlSessionDaoSupport implements ItemsInterface {
 		return 0;
 	}
 	@Override
-	public int delItems(int num) {
+	public int delContents(String i_name) {
 		// TODO Auto-generated method stub
-		return 0;
+		return getSqlSession().delete("ItemsInterface.delContents", i_name);
 	}
 	@Override
 	public Items getItemsModi(int num) {

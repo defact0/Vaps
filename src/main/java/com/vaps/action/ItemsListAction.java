@@ -59,6 +59,11 @@ public class ItemsListAction {
 		// 상품재고update
 		return dao.setItemsToredUpdate(item);
 	}
+	public int delContents(String i_name){
+		// 상품재고update
+		return dao.delContents(i_name);
+	}
+	
 	
 	// add method
 	public void convertDBcontents(Items item){

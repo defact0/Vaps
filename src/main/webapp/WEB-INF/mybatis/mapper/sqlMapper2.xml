@@ -25,4 +25,7 @@
 	<select id="getContents" resultType="items" parameterType="java.lang.String">
 	SELECT * FROM ITEMS, ITEMSTORED WHERE I_NAME=#{i_name} AND I_NAME=IS_NAME
 	</select>
+	<delete id="delContents" parameterType="Integer">
+		DELETE FROM ITEMS WHERE I_NAME=#{i_name}
+	</delete>
 </mapper>

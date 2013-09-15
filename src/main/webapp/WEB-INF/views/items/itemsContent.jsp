@@ -47,11 +47,16 @@
 			<tr>
 				<td colspan="2"><img src="/upload/${ilist.i_pic}" width="550" height="250"/></td>
 			</tr>
+			<tr>
+			<td align="left">
+			<a href="/itemslist" class="button">목록</a>
+			</td>
+			<td align="right">
+			<a href="/itemsModifyForm?str=${ilist.i_name}" class="button">수정</a>
+			<a href="/itemsDelContent?str=${ilist.i_name}" class="button">삭제</a>
+			</td>
+		</tr>
 		</table>
-
-		<a href="/itemslist" class="button">목록</a>
-		<a href="/itemsModifyForm?str=${ilist.i_name}" class="button">수정</a>
-
 	<br>
 </div>
 </body>
