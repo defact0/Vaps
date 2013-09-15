@@ -29,8 +29,11 @@ public class ItemsListAction {
 	}
 	public Items getContents(String i_name){
 		// 상품 상세 정보
-		Items item = dao.getContents(i_name); 
-		return item;
+		return dao.getContents(i_name); 
+	}
+	public List<Items> getCategoryContents(String i_category){
+		// 상품 상세 정보
+		return dao.getCategoryContents(i_category); 
 	}
 	public Items getContentsModi(String i_name){
 		// 상품 상세 정보 수정 textarea 문제때문에 변환 필요

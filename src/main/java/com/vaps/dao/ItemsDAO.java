@@ -45,14 +45,20 @@ public class ItemsDAO extends SqlSessionDaoSupport implements ItemsInterface {
 		return getSqlSession().selectOne("ItemsInterface.getContents", i_name);
 	}
 	@Override
+	public int delContents(String i_name) {
+		// 상품 정보 삭제
+		return getSqlSession().delete("ItemsInterface.delContents", i_name);
+	}
+	
+	@Override
+	public List<Items> getCategoryContents(String i_category) {
+		// 해당 상품 카데고리 리스트를 가져오기
+		return getSqlSession().selectList("ItemsInterface.getCategoryContents", i_category);
+	}
+	@Override
 	public int getPageCount() {
 		// TODO Auto-generated method stub
 		return 0;
-	}
-	@Override
-	public int delContents(String i_name) {
-		// TODO Auto-generated method stub
-		return getSqlSession().delete("ItemsInterface.delContents", i_name);
 	}
 	@Override
 	public Items getItemsModi(int num) {

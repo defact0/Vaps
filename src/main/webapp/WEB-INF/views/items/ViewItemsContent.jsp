@@ -13,12 +13,21 @@
 <body>
 	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
-	
 	<div style="padding: 1px 20px 30px 60px;">
-		<table border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
+		<img src="/images/ItemsContent.jpg"/>
+		<table width="820" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
 			<tr>
-				<td bgcolor="#A6CAF0" align="center" width="150">i_name:</td>
-				<td>&nbsp;${ilist.i_name}</td>
+				<td width="300">
+					<img src="/upload/${ilist.i_pic}" width="300" height="200"/>
+				</td>
+				<td width="250" align="center">
+				주문관련 기능이 들어갈 자리<br/>
+				[수량], [장바구니] 설정
+				</td>
+			</tr>
+			<tr>
+				<td width="100" bgcolor="#A6CAF0" align="center">i_name:</td>
+				<td width="600">&nbsp;${ilist.i_name}</td>
 			</tr>
 			<tr>
 				<td bgcolor="#A6CAF0" align="center">i_category:</td>
@@ -45,18 +54,8 @@
 				<td>&nbsp;${ilist.is_count}</td>
 			</tr>
 			<tr>
-				<td colspan="2"  style='border-left:none;border-right:none;border-top:solid #000000 0.4pt;border-bottom:none;'>
-					<img src="/upload/${ilist.i_pic}" width="550" height="250"/>
-				</td>
-			</tr>
-			<tr>
-			<td align="left" style='border-left:none;border-right:none;border-top:none;border-bottom:none;'>
-			<a href="/itemslist" class="button">목록</a>
-			</td>
-			<td align="right" style='border-left:none;border-right:none;border-top:none;border-bottom:none;'>
-			<a href="/itemsModifyForm?str=${ilist.i_name}" class="button">수정</a>
-			<a href="/itemsDelContent?str=${ilist.i_name}" class="button">삭제</a>
-			</td>
+			<td style='border-left:none;border-right:none;border-top:none;border-bottom:none;'>
+			<a href="/itemslist" class="button">목록</a></td>
 		</tr>
 		</table>
 	<br>

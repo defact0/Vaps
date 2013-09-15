@@ -28,4 +28,7 @@
 	<delete id="delContents" parameterType="Integer">
 		DELETE FROM ITEMS WHERE I_NAME=#{i_name}
 	</delete>
+	<select id="getCategoryContents" resultType="items">
+		SELECT * FROM ITEMS WHERE I_CATEGORY=#{i_category}
+	</select>
 </mapper>

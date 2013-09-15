@@ -16,5 +16,6 @@ public interface ItemsInterface {
 	InputStream getPicture(Integer itemId);
 	public int setItemsUpdate(Items item); //상품정보 update
 	public int setItemsToredUpdate(Items item); //상품재고 update
+	public List<Items> getCategoryContents(String i_category); // 카테고리별로 출력
 
 }

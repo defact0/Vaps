@@ -27,12 +27,10 @@
 
 		<li><a href="/">HOME</a></li>
 
-		<li class="sub"><a href="#">item manage</a>
+		<li class="sub"><a href="/itemslist">item manage</a>
 			<ul>
 				<li><a href="/itemslist">상품리스트</a></li>
 				<li><a href="/itemsUploadForm">상품등록</a></li>
-				<li><a href="#">도시락</a></li>
-				<li><a href="#">비빔밥</a></li>
 				<li><a href="#">추천도시락</a></li>
 				<li><a href="#">인기도시락</a></li>
 			</ul></li>

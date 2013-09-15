@@ -212,4 +212,55 @@ public class ItemsController{
 			e.printStackTrace();
 		}
 	}
+	//판매물품 리스트(고객용)
+	@RequestMapping(value = "/AllItems")
+	public String AllItems(HttpServletRequest req, HttpServletResponse res, Model model) {
+		String result = "home";
+
+		try {
+			ItemsListAction item = new ItemsListAction(itemsDAO);
+			if (HomeController.session != null && HomeController.session.getAttribute("id") != "") {
+				model.addAttribute("ilist", item.getItemsList());
+				result = "items/AllItems";
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+	//판매물품 리스트 카테고리(고객용)
+	@RequestMapping(value = "/ViewItems")
+	public String ViewItems(HttpServletRequest req, HttpServletResponse res, Model model) {
+		HomeController.session = req.getSession();
+		ItemsListAction item = new ItemsListAction(itemsDAO);
+		try {
+			req.setCharacterEncoding("UTF-8");
+			if (HomeController.session != null && HomeController.session.getAttribute("id") != "") {
+				String i_category = req.getParameter("str");
+				model.addAttribute("ilist", item.getCategoryContents(i_category));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "items/ViewItems";
+	}
+	//판매물품 내용(고객용)
+	@RequestMapping(value = "/ViewItemsContent")
+	public String ViewItemsContent(HttpServletRequest req, HttpServletResponse res, Model model) {
+		HomeController.session = req.getSession();
+		ItemsListAction item = new ItemsListAction(itemsDAO);
+		try {
+			req.setCharacterEncoding("UTF-8");
+			if (HomeController.session != null && HomeController.session.getAttribute("id") != "") {
+				String i_name = req.getParameter("str");
+				model.addAttribute("ilist", item.getContents(i_name)); // 원글 보기
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "items/ViewItemsContent";
+		
+	}
 }

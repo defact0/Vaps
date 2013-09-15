@@ -33,10 +33,12 @@
 				<li><a href="/developer">개발자 소개</a></li>
 			</ul></li>
 			
-		<li class="sub"><a href="#">Shopping</a>
+		<li class="sub"><a href="/AllItems">Shopping</a>
 			<ul>
-				<li><a href="#">도시락</a></li>
-				<li><a href="#">비빔밥</a></li>
+				<li><a href="/AllItems">전체상품</a></li>
+				<li><a href="/ViewItems?str=도시락">도시락</a></li>
+				<li><a href="/ViewItems?str=비빔밥">비빔밥</a></li>
+				<li><a href="/ViewItems?str=마요">마요 시리즈</a></li>
 				<li><a href="#">추천도시락</a></li>
 				<li><a href="#">인기도시락</a></li>
 			</ul></li>
