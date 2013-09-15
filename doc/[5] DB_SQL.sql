@@ -62,6 +62,7 @@ CREATE OR REPLACE VIEW BLIST AS
 SELECT ROWNUM AS B_NO, 
             B_NUM,
             B_ID,
+            M_NICK,
             B_SUB,
             B_CONTENTS,
             B_DATE,

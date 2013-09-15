@@ -9,10 +9,18 @@ import java.sql.Date;
 public class BoardList {
 	private int b_num;
 	private String b_id;
+	private String m_nick;
 	private String b_sub;
 	private String b_contents;
 	private Date b_date;
 	private int b_readcount;
+	
+	public String getM_nick() {
+		return m_nick;
+	}
+	public void setM_nick(String m_nick) {
+		this.m_nick = m_nick;
+	}
 	public int getB_num() {
 		return b_num;
 	}

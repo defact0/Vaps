@@ -28,7 +28,7 @@
 				<tr height="25">
 					<td width="70" align="center">${blist.b_num}</td>
 					<td width="400"><a href="contents?idx=${blist.b_num}"> ${blist.b_sub} </a></td>
-					<td width="100" align="center">${blist.b_id}</td>
+					<td width="100" align="center">${blist.m_nick}</td>
 					<td width="150" align="center">${blist.b_date}</td>
 					<td width="100" align="center">${blist.b_readcount}</td>
 				</tr>
