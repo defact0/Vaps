@@ -1,3 +1,6 @@
+<!-- 
+		일반 사용자 전용 페이지
+ -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -22,7 +25,8 @@
 				</td>
 				<td width="250" align="center">
 				주문관련 기능이 들어갈 자리<br/>
-				[수량], [장바구니] 설정
+				[수량], [장바구니] 설정<br/>
+				<a href="/CartList?str=${ilist.i_name}" class="button">장바구니 담기</a>
 				</td>
 			</tr>
 			<tr>
