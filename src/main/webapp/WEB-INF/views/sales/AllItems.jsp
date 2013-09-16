@@ -1,6 +1,3 @@
-<!-- 
-		일반 사용자 전용 페이지
- -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -28,7 +25,7 @@
 			<c:forEach var="ilist" items="${ilist}">
 				<tr height="25">
 					<td width="100" align="center">${ilist.i_category}</td>
-					<td width="400"><a href="/ViewItemsContent?str=${ilist.i_name}"> ${ilist.i_name} </a></td>
+					<td width="400"><a href="/ViewItemsContent?num=${ilist.i_num}&str=${ilist.i_name}"> ${ilist.i_name} </a></td>
 					<td width="150" align="center">${ilist.i_price}</td>
 				</tr>
 			</c:forEach>

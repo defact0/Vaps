@@ -14,7 +14,20 @@
 
 	<div style="padding: 1px 20px 30px 60px;">
 		<img src="/images/TodayList.jpg"/>
-
+		<table id="two_table">
+			<tr bgcolor="cyan" align="center" height="35">
+				<td width="100">카테고리</td>
+				<td width="200">상품이름</td>
+				<td width="150">가격</td>
+			</tr>
+			<c:forEach var="today" items="${today}">
+				<tr height="25">
+					<td width="100" align="center">${today.i_category}</td>
+					<td width="400"><a href="/ViewItemsContent?num=${today.i_num}&str=${today.i_name}"> ${today.i_name} </a></td>
+					<td width="150" align="center">${today.i_price}</td>
+				</tr>
+			</c:forEach>
+		</table>
 	</div>
 
 </body>

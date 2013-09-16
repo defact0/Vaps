@@ -8,7 +8,7 @@
 	<resultMap type="al" id="al" />
 
 	<select id="getItemsList" resultType="items">
-	SELECT I_NAME, I_CATEGORY, I_PRICE FROM ITEMS
+	SELECT * FROM ITEMS
 	</select>
 	<insert id="setItems" parameterType="items">
 	INSERT INTO ITEMS VALUES(item_seq.NEXTVAL, #{i_name}, #{i_category},#{i_price}, #{i_pic}, #{i_description})

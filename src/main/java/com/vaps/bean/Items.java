@@ -3,6 +3,7 @@ package com.vaps.bean;
 
 public class Items {
 	//items와 itemsored와 같이 쓴다.
+	private int i_num; //시퀀스, 쿠키에서..
 	private String i_name; //상품이름(i_name)
 	private String i_category; //범주(i_category)
 	private int i_price; //가격(i_price)
@@ -12,11 +13,11 @@ public class Items {
 	private int is_count; //재고상품수량(is_count)
 	private String str; // 검색을 위한
 	
-	public String getStr() {
-		return str;
+	public int getI_num() {
+		return i_num;
 	}
-	public void setStr(String str) {
-		this.str = str;
+	public void setI_num(int i_num) {
+		this.i_num = i_num;
 	}
 	public String getI_name() {
 		return i_name;
@@ -59,6 +60,12 @@ public class Items {
 	}
 	public void setIs_count(int is_count) {
 		this.is_count = is_count;
+	}
+	public String getStr() {
+		return str;
+	}
+	public void setStr(String str) {
+		this.str = str;
 	}
 
 }
