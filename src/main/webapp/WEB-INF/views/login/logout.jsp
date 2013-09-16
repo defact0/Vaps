@@ -17,6 +17,6 @@
 %>
 </head>
 <body>
-<meta http-equiv='refresh' content='0; url=/'> 
+	<meta http-equiv='refresh' content='0; url=/'> 
 </body>
 </html>
