@@ -12,42 +12,15 @@
 	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 
-	<div style="padding: 1px 20px 30px 60px;">
-		<h1>Vaps Shop!</h1>
-		<table>
-			<tr>
-				<td colspan=2>Session Info</td>
-			</tr>
-			<tr>
-				<td>id</td>
-				<td>${members.m_id }</td>
-			</tr>
-			<tr>
-				<td>nick</td>
-				<td>${members.m_nick }</td>
-			</tr>
-			<tr>
-				<td>pwd</td>
-				<td>${members.m_pwd }</td>
-			</tr>
-			<tr>
-				<td>phone</td>
-				<td>${members.m_phone }</td>
-			</tr>
-			<tr>
-				<td>addr</td>
-				<td>${members.m_addr }</td>
-			</tr>
-			<tr>
-				<td>point</td>
-				<td>${members.m_point }</td>
-			</tr>
-			<tr>
-				<td>auth</td>
-				<td>${members.m_auth }</td>
-			</tr>
-			</table>
-	</div>
+   <c:if test="${members.m_auth==0}" var="result">
+  	 <%@include file="/WEB-INF/views/top/firstNormal.jsp"%>
+   </c:if>
+   <c:if test="${members.m_auth==1}" var="result">
+  	 <%@include file="/WEB-INF/views/top/firstAdmin.jsp"%>
+   </c:if>
+   <c:if test="${members.m_auth==null}" var="result">
+  	 <%@include file="/WEB-INF/views/top/firstGuest.jsp"%>
+   </c:if>   
 
 </body>
 </html>
