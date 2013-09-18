@@ -1,5 +1,7 @@
 package com.vaps.home;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -137,6 +139,42 @@ public class SalesController{
 			request.setAttribute("totalMoney", totalMoney);
 			request.setAttribute("cartList", cartList);
 		return "sales/CartList";
+	}
+	@RequestMapping(value = "/itemsCntUp")
+	public void itemsCntUp(HttpServletRequest request,HttpServletResponse response) throws IOException{
+		request.setCharacterEncoding("UTF-8");
+		String str = request.getParameter("str");
+		CartBiz cartBiz = new CartBiz();
+		cartBiz.cntUp(request,str);
+		
+		PrintWriter out = response.getWriter();
+		out.println("<script>");
+		out.println("location.href='/CartList'");
+		out.println("</script>");
+	}
+	@RequestMapping(value = "/itemsCntDown")
+	public void itemsCntDown(HttpServletRequest request,HttpServletResponse response) throws IOException{
+		request.setCharacterEncoding("UTF-8");
+		String str = request.getParameter("str");
+		CartBiz cartBiz = new CartBiz();
+		cartBiz.cntDown(request,str);
+		
+		PrintWriter out = response.getWriter();
+		out.println("<script>");
+		out.println("location.href='/CartList'");
+		out.println("</script>");
+	}
+	@RequestMapping(value = "/itemsRemove")
+	public void itemsRemove(HttpServletRequest request,HttpServletResponse response) throws IOException{
+		request.setCharacterEncoding("UTF-8");
+		String[] str = request.getParameterValues("delete");
+		CartBiz cartBiz = new CartBiz();
+		cartBiz.removeCartItem(request,str);
+		
+		PrintWriter out = response.getWriter();
+		out.println("<script>");
+		out.println("location.href='/CartList'");
+		out.println("</script>");
 	}
 	@RequestMapping(value = "/TodayList")
 	public String TodayList(HttpServletRequest req,Model model) {

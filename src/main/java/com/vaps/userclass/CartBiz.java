@@ -51,15 +51,15 @@ public class CartBiz {
 		return cartList;
 	}
 
-	public void removeCartItem(HttpServletRequest request, String[] kinds) {
+	public void removeCartItem(HttpServletRequest request, String[] str) {
 		// 주문 상품 삭제하기(장바구니)
 		HttpSession session = request.getSession();
 		@SuppressWarnings("unchecked")
 		ArrayList<Items> cartList = 
 		(ArrayList<Items>)session.getAttribute("cartList");
-		for(int i=0;i<kinds.length;i++){
+		for(int i=0;i<str.length;i++){
 			for(int j=0;j<cartList.size();j++){
-				if(kinds[i].equals(cartList.get(j).getI_name())){
+				if(str[i].equals(cartList.get(j).getI_name())){
 					cartList.remove(cartList.get(j));
 				}
 			}
@@ -67,28 +67,27 @@ public class CartBiz {
 		
 	}
 
-	public void upCartQty(HttpServletRequest request, String kind) {
+	public void cntUp(HttpServletRequest request, String str) {
 		// 주문수량 증가
 		HttpSession session = request.getSession();
 		@SuppressWarnings("unchecked")
 		ArrayList<Items> cartList = 
 		(ArrayList<Items>)session.getAttribute("cartList");
 		for(int i=0;i<cartList.size();i++){
-			if(cartList.get(i).getI_name().equals(kind)){
+			if(cartList.get(i).getI_name().equals(str)){
 				cartList.get(i).setBuyCount(cartList.get(i).getBuyCount()+1);
 			}
 		}
 	}
 
-	public void downCartQty(HttpServletRequest request, String kind) {
+	public void cntDown(HttpServletRequest request, String str) {
 		// 주문수량 감소
 		HttpSession session = request.getSession();
 		@SuppressWarnings("unchecked")
 		ArrayList<Items> cartList = 
 		(ArrayList<Items>)session.getAttribute("cartList");
 		for(int i=0;i<cartList.size();i++){
-			if(cartList.get(i).getI_name().equals(kind)){
-				
+			if(cartList.get(i).getI_name().equals(str)){
 				cartList.get(i).setBuyCount(cartList.get(i).getBuyCount()-1);
 			}
 		}

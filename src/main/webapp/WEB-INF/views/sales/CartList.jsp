@@ -9,6 +9,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Vaps shopping mall</title>
+<script>
+	function checkCNT(name,cnt){
+		if(cnt != 1){
+		location.href="/itemsCntDown?str="+name;	
+		}
+		else{
+		return;
+		}
+	}
+</script>
 </head>
 <body>
 	<%@include file="/WEB-INF/views/top/title.jsp"%>
@@ -37,7 +47,7 @@
 		<%
 			} else {
 		%>
-		<form action="dogCartRemove.dog" method="post" name="myForm">
+		<form action="/itemsRemove" method="post" name="myForm">
 			<table align="center" width="600" border="1">
 				<tr align="center" bgcolor="orange">
 					<td>번호</td>
@@ -61,13 +71,12 @@
 					<td><%=cartList.get(i).getI_name()%></td>
 					<td><%=cartList.get(i).getI_price()%></td>
 					<td><a
-						href="dogCartQtyUp.dog?kind=<%=cartList.get(i).getI_name()%>">
-							<img src="images/up.jpg" width="15" height="15" border="0" />
-					</a> <br> <%=cartList.get(i).getBuyCount()%><br> <a
-						href="javascript:checkQty('<%=cartList.get(i).getI_name()%>',<%=cartList.get(i).getBuyCount()%>)">
-							<img src="images/down.jpg" width="15" height="15" border="0" />
-					</a> <br></td>
-					<td align="center"><input type="checkbox" name="delete"
+						href="itemsCntUp?str=<%=cartList.get(i).getI_name()%>">
+						<img src="/images/cntUp.jpg"/></a> <br> <%=cartList.get(i).getBuyCount()%><br> <a
+						href="javascript:checkCNT('<%=cartList.get(i).getI_name()%>',<%=cartList.get(i).getBuyCount()%>)">
+						<img src="/images/cntDown.jpg"/></a> <br></td>
+					<td align="center">
+					<input type="checkbox" name="delete"
 						value="<%=cartList.get(i).getI_name()%>" /></td>
 
 				</tr>
@@ -75,12 +84,6 @@
 				<%
 					}
 				%>
-				<tr>
-					<!-- 세션 지우기195 -->
-					<input type="button"
-						onclick="location.href='sessionInvalidate.jsp'" value="세션삭제" />
-				</tr>
-
 
 			</table>
 		</form>
