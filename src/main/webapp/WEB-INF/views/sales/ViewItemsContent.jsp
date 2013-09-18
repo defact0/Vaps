@@ -23,7 +23,7 @@
 				<td width="250" align="center">
 				주문관련 기능이 들어갈 자리<br/>
 				[수량], [장바구니] 설정<br/>
-				<a href="/CartList?str=${ilist.i_name}" class="button">장바구니 담기</a>
+				<a href="/CartListAdd?str=${ilist.i_name}" class="button">장바구니 담기</a>
 				</td>
 			</tr>
 			<tr>

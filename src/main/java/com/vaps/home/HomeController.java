@@ -31,7 +31,7 @@ import com.vaps.userclass.EncryptionEncoding;
 // members라는 세션영역에 저장
 // jsp에서 ${members.id} 이런식으로 세션영역의 변수를 호출할 수 있다. sessionScope.members.id 대신함
 public class HomeController {
-	static HttpSession session;
+	public static HttpSession session;
 	// mybatis-context.xml 에서 연결되었다.
 	@Resource(name = "membersDao")
 	// @Autowired 도 왼쪽과 같은 자동주입이나 권장하지 않는 방법이다. 가능하면 @Resource를 쓰라

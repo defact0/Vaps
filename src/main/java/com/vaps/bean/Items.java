@@ -12,7 +12,14 @@ public class Items {
 	private String is_name; //재고상품(is_name)
 	private int is_count; //재고상품수량(is_count)
 	private String str; // 검색을 위한
+	private int buyCount; // 주문수량
 	
+	public int getBuyCount() {
+		return buyCount;
+	}
+	public void setBuyCount(int buyCount) {
+		this.buyCount = buyCount;
+	}
 	public int getI_num() {
 		return i_num;
 	}

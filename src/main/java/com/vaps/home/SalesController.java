@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.vaps.action.ItemsListAction;
 import com.vaps.bean.Items;
 import com.vaps.dao.ItemsDAO;
+import com.vaps.userclass.CartBiz;
 
 
 /**
@@ -94,9 +95,47 @@ public class SalesController{
 	}
 //--------------------------------------------------------------
 // 판매 관리 
+	@RequestMapping(value = "/CartListAdd")
+	public String CartListAdd(HttpServletRequest request) throws UnsupportedEncodingException {
+		//장바구니 추가
+		request.setCharacterEncoding("UTF-8");
+		ItemsListAction item = new ItemsListAction(itemsDAO);
+		String str = request.getParameter("str");
+		Items items = item.getContents(str);
+
+		CartBiz cartBiz = new CartBiz();
+		cartBiz.addCart(request,items);
+
+		//화면 출력
+		ArrayList<Items> cartList = cartBiz.getCartList(request);
+		int totalMoney=0;
+		if(cartList!=null){	
+			for(int i=0;i<cartList.size();i++){
+			int	money = 
+		    cartList.get(i).getI_price()*cartList.get(i).getBuyCount();
+			totalMoney += money;
+			}
+		}
+			request.setAttribute("totalMoney", totalMoney);
+			request.setAttribute("cartList", cartList);
+		
+		return "sales/CartList";
+	}
 	@RequestMapping(value = "/CartList")
-	public String CartList() {
-		//장바구니
+	public String CartList(HttpServletRequest request){
+		//화면 출력
+		CartBiz cartBiz = new CartBiz();
+		ArrayList<Items> cartList = cartBiz.getCartList(request);
+		int totalMoney=0;
+		if(cartList!=null){	
+			for(int i=0;i<cartList.size();i++){
+			int	money = 
+		    cartList.get(i).getI_price()*cartList.get(i).getBuyCount();
+			totalMoney += money;
+			}
+		}
+			request.setAttribute("totalMoney", totalMoney);
+			request.setAttribute("cartList", cartList);
 		return "sales/CartList";
 	}
 	@RequestMapping(value = "/TodayList")
