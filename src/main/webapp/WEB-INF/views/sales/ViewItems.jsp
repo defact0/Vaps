@@ -15,7 +15,7 @@
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 
 	<div style="padding: 1px 20px 30px 60px;">
-	<img src="/images/CategoryItems.jpg"/>
+	<img src="/images/sales/CategoryItems.jpg"/>
 		<table id="two_table">
 			<tr bgcolor="cyan" align="center" height="35">
 				<td width="100">카테고리</td>

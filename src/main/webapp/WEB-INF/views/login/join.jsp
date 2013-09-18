@@ -44,7 +44,7 @@
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 <br/>
 	<div style="padding: 1px 20px 30px 60px;">
-		<img src="/images/signUp.jpg"/>
+		<img src="/images/members/signUp.jpg"/>
 		<form action="memJoin" name="joinFrm" method="post"
 			onsubmit="return formCheck();">
 			<table>

@@ -13,7 +13,7 @@
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 <br/>
 	<div style="padding: 1px 20px 30px 60px;">
-		<img src="/images/AboutDeveloper.jpg"/><br/>
+		<img src="/images/about/AboutDeveloper.jpg"/><br/>
 		name : lee jungdo<br/>
 		mail : <a href="mailto:ejungdo@naver.com">ejungdo@naver.com</a><br/>
 		github : <a href="https://github.com/defact0">https://github.com/defact0</a><br/>

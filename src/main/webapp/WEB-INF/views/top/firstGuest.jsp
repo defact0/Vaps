@@ -14,15 +14,13 @@
 	<table width="100%" cellspacing="0">
 		<tr>
 			<td>
-				<h1>환영합니다!</h1>
-			</td>
-			<td>
-				<img src="/images/exDosirak.jpg"/>
+				<img src="/images/guest/mainGuest1.jpg"/>
+				<img src="/images/guest/mainGuest2.jpg"/>
 			</td>
 		</tr>
 		<tr>
-			<td bgcolor="blue" colspan="2">
-				<h1>bbb</h1>
+			<td bgcolor="yellow">
+				<img src="/images/guest/mainSingUp.jpg"/>
 			</td>
 		</tr>
 

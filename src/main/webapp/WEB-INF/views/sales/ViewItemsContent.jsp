@@ -14,7 +14,7 @@
 	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 	<div style="padding: 1px 20px 30px 60px;">
-		<img src="/images/ItemsContent.jpg"/>
+		<img src="/images/sales/ItemsContent.jpg"/>
 		<table width="820" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
 			<tr>
 				<td width="300">

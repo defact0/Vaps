@@ -13,7 +13,7 @@
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 <br/>
 	<div style="padding: 1px 20px 30px 60px;">
-			<img src="/images/InfoProfile.jpg"/>
+			<img src="/images/members/InfoProfile.jpg"/>
 		<table width="260">
 			<tr>
 				<td width="50">id</td>
