@@ -32,7 +32,7 @@ import com.vaps.userclass.CartBiz;
 public class SalesController{
 	@Resource(name = "itemsDao")
 	private ItemsDAO itemsDAO;
-	
+
 	//판매물품 리스트(고객용)
 	@RequestMapping(value = "/AllItems")
 	public String AllItems(HttpServletRequest req, HttpServletResponse res, Model model) {
@@ -78,12 +78,12 @@ public class SalesController{
 			res.setContentType("text/html;charset=UTF-8");
 		String i_name=null;
 		String i_num = req.getParameter("num");
-			
+
 			if (HomeController.session != null && HomeController.session.getAttribute("id") != "") {
 				i_name = req.getParameter("str");
 				model.addAttribute("ilist", item.getContents(i_name)); // 원글 보기
 			}
-			
+
 			//쿠키 설정
 			Cookie cookie = new Cookie("selectItem"+i_num, URLEncoder.encode(i_name, "UTF-8"));
 			cookie.setMaxAge(60*60*24);
@@ -93,7 +93,7 @@ public class SalesController{
 			e.printStackTrace();
 		}
 		return "sales/ViewItemsContent";
-		
+
 	}
 //--------------------------------------------------------------
 // 판매 관리 
@@ -120,7 +120,7 @@ public class SalesController{
 		}
 			request.setAttribute("totalMoney", totalMoney);
 			request.setAttribute("cartList", cartList);
-		
+
 		return "sales/CartList";
 	}
 	@RequestMapping(value = "/CartList")
@@ -146,7 +146,7 @@ public class SalesController{
 		String str = request.getParameter("str");
 		CartBiz cartBiz = new CartBiz();
 		cartBiz.cntUp(request,str);
-		
+
 		PrintWriter out = response.getWriter();
 		out.println("<script>");
 		out.println("location.href='/CartList'");
@@ -158,7 +158,7 @@ public class SalesController{
 		String str = request.getParameter("str");
 		CartBiz cartBiz = new CartBiz();
 		cartBiz.cntDown(request,str);
-		
+
 		PrintWriter out = response.getWriter();
 		out.println("<script>");
 		out.println("location.href='/CartList'");
@@ -170,7 +170,7 @@ public class SalesController{
 		String[] str = request.getParameterValues("delete");
 		CartBiz cartBiz = new CartBiz();
 		cartBiz.removeCartItem(request,str);
-		
+
 		PrintWriter out = response.getWriter();
 		out.println("<script>");
 		out.println("location.href='/CartList'");
@@ -183,7 +183,7 @@ public class SalesController{
 		Cookie[] cookies = req.getCookies();
 		ArrayList<Items> today = new ArrayList<Items>();
 		String value = null;
-		
+
 		if(cookies != null){
 			for(int i=0;i<cookies.length;i++){
 				if(cookies[i].getName().startsWith("selectItem")){
@@ -199,5 +199,19 @@ public class SalesController{
 		}
 		return "sales/TodayList";
 	}
+	// 주문관련 로직(sales)
+		@RequestMapping(value = "/itemsPurchase")
+		public void itemsPurchase(HttpServletRequest request,HttpServletResponse response) throws IOException{
+			request.setCharacterEncoding("UTF-8");
+			System.out.println("/itemsPurchase");
+			CartBiz cartBiz = new CartBiz();
+			ArrayList<Items> cartList = cartBiz.getCartList(request);
+				for (int i = 0; i < cartList.size(); i++){
+					
+					System.out.println(i+"번째 이름: "+cartList.get(i).getI_name());
+					System.out.println(i+"번째 가격:"+cartList.get(i).getI_price());
+					System.out.println(i+"번째 수량:"+cartList.get(i).getBuyCount());
+				}
+		}
 
 }

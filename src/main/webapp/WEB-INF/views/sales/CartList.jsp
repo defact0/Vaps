@@ -12,7 +12,18 @@
 <title>Vaps shopping mall</title>
 <link rel="styleSheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/bt.css" />
-<script>
+	
+<script language='javascript'>
+	function submitForm1() { 
+		var form = document.forms['myForm']; 
+		form.action = '/itemsRemove'; 
+		form.submit(); 
+	} 
+	function submitForm2() { 
+		var form = document.forms['myForm']; 
+		form.action = '/itemsPurchase'; 
+		form.submit(); 
+	}
 	function checkCNT(name,cnt){
 		if(cnt != 1){
 		location.href="/itemsCntDown?str="+name;	
@@ -52,7 +63,7 @@ A:hover {COLOR:white; text-decoration:underline}
 		<%
 			} else {
 		%>
-				<form action="/itemsRemove" method="post" name="myForm">
+				<form method="post" name="myForm">
 					<table width="820" >
 						<tr align="center" bgcolor="orange">
 							<td>번호</td>
@@ -60,8 +71,9 @@ A:hover {COLOR:white; text-decoration:underline}
 							<td>상품명</td>
 							<td>가격</td>
 							<td>수량</td>
-							<td align="center"><input type="submit" name="delete"
-								class="button" value="삭제" /></td>
+							<td align="center">
+								<input type="button" class="button" value="삭제" onclick="submitForm1();"> 
+							</td>
 						</tr>
 						<%
 							int num = 1;
@@ -86,13 +98,17 @@ A:hover {COLOR:white; text-decoration:underline}
 							}
 						%>
 				</table>
-				</form>
+
 				<table width="820">
 					<tr align="center" bgcolor="yellow">
 						<td align="right" colspan="6"><font color="gray" size="5">총
 								결제금액 : </font><font color="black" size="8"><%=totalMoney%>원</font></td>
 					</tr>
+					<tr>
+						<td align="right"><input type="button" class="button" value="구매하기" onclick="submitForm2();"> </td>
+					</tr>
 				</table>
+						</form>
 		<%
 			}
 		%>

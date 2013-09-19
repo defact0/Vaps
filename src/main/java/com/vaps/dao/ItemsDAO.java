@@ -1,6 +1,5 @@
 package com.vaps.dao;
 
-import java.io.InputStream;
 import java.util.List;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
@@ -8,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.support.lob.LobHandler;
 
 import com.vaps.bean.Items;
+import com.vaps.bean.SalesList;
 
 public class ItemsDAO extends SqlSessionDaoSupport implements ItemsInterface {
 	
@@ -54,26 +54,6 @@ public class ItemsDAO extends SqlSessionDaoSupport implements ItemsInterface {
 	public List<Items> getCategoryContents(String i_category) {
 		// 해당 상품 카데고리 리스트를 가져오기
 		return getSqlSession().selectList("ItemsInterface.getCategoryContents", i_category);
-	}
-	@Override
-	public int getPageCount() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public Items getItemsModi(int num) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public int setItemsModi(Items item) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public InputStream getPicture(Integer itemId) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	
 }
