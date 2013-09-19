@@ -221,25 +221,23 @@ public class SalesController{
 				saleslist.setS_buy_cnt(buyCnt); //s_buy_cnt
 				saleslist.setS_buy_price(cartList.get(i).getI_price() * buyCnt); //s_buy_price
 					// s_buy_date, 디폴트
+				item.setBuyItems(saleslist);// db로 insert 수행
 			}
 				
 				response.setContentType("text/html;charset=UTF-8"); // 한글처리코드
 				PrintWriter out = response.getWriter();
-				if (item.setBuyItems(saleslist) == 1) { // db로 insert 수행 
 					//구매완료 했으면 장바구니를 날린다.
 					HomeController.session.removeAttribute("cartList");
 					
 					out.println("<script>");
-					out.println("alert('정상 처리되었습니다!')");
+					out.println("alert('구매 감사합니다!')");
 					out.println("location.href='/'");
 					out.println("</script>");
-				} else {
-					// 실패시 홈으로 이동
-					out.println("<script>");
-					out.println("alert('상품구입에 실패하였습니다.')");
-					out.println("location.href='/'");
-					out.println("</script>");
-				}
+		}
+		//주문기록
+		@RequestMapping(value = "/buyHistory")
+		public void buyHistory(HttpServletRequest request,HttpServletResponse response){
+			
 		}
 		
 }
