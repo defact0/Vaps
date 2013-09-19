@@ -64,8 +64,8 @@ public class CartBiz {
 				}
 			}
 		}
-		
 	}
+	
 
 	public void cntUp(HttpServletRequest request, String str) {
 		// 주문수량 증가

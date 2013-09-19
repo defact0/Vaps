@@ -35,4 +35,7 @@
 	<select id="getMaxBuyCode" resultType="Integer">
 		SELECT S_BUY_CODE FROM SALES_GET_CODE
 	</select>
+	<insert id="setBuyItems" parameterType="sales">
+	INSERT INTO SALES(s_num,s_id,s_buy_code,s_item_name,s_buy_cnt,s_buy_price,s_buy_date) VALUES(sales_seq.NEXTVAL, #{s_id}, #{s_buy_code},#{s_item_name}, #{s_buy_cnt}, #{s_buy_price}, default)
+	</insert>
 </mapper>

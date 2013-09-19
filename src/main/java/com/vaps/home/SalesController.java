@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.vaps.action.ItemsListAction;
 import com.vaps.bean.Items;
+import com.vaps.bean.SalesList;
 import com.vaps.dao.ItemsDAO;
 import com.vaps.userclass.CartBiz;
 
@@ -200,24 +201,44 @@ public class SalesController{
 		return "sales/TodayList";
 	}
 	// 주문관련 로직(sales)
+		@SuppressWarnings("null")
 		@RequestMapping(value = "/itemsPurchase")
 		public void itemsPurchase(HttpServletRequest request,HttpServletResponse response) throws IOException{
 			request.setCharacterEncoding("UTF-8");
+			SalesList saleslist = new SalesList();
 			CartBiz cartBiz = new CartBiz();
-			// s_buy_code는 sales 테이블에서 max값을 가져온다
 			ItemsListAction item = new ItemsListAction(itemsDAO);
-			System.out.println("maxBuyCode:"+item.getMaxBuyCode());
-			System.out.println(	HomeController.session.getAttribute("id")); // s_id는 현재 세션의 id값을 가져온다
 			ArrayList<Items> cartList = cartBiz.getCartList(request);
-				for (int i = 0; i < cartList.size(); i++){
+			
+			int getBuyCode = item.getMaxBuyCode()+1;// s_buy_code는 저장된 code에서 +1하여 새로 코드를 저장함
+			String getBuyID = (String) HomeController.session.getAttribute("id"); // s_id는 현재 세션의 id값을 가져온다
+			for (int i = 0; i < cartList.size(); i++){
 					// s_num, 시퀀스
-					// s_id
-					// s_buy_code
-					System.out.println(i+"번째 이름: "+cartList.get(i).getI_name()); //s_item_name
-					System.out.println(i+"번째 가격:"+cartList.get(i).getI_price()); //s_buy_price
-					System.out.println(i+"번째 수량:"+cartList.get(i).getBuyCount()); //s_buy_cnt
+				saleslist.setS_buy_code(getBuyCode); // s_id
+				saleslist.setS_id(getBuyID); // s_buy_code
+				saleslist.setS_item_name(cartList.get(i).getI_name()); //s_item_name
+				int buyCnt = cartList.get(i).getBuyCount();
+				saleslist.setS_buy_cnt(buyCnt); //s_buy_cnt
+				saleslist.setS_buy_price(cartList.get(i).getI_price() * buyCnt); //s_buy_price
 					// s_buy_date, 디폴트
-
+			}
+				
+				response.setContentType("text/html;charset=UTF-8"); // 한글처리코드
+				PrintWriter out = response.getWriter();
+				if (item.setBuyItems(saleslist) == 1) { // db로 insert 수행 
+					//구매완료 했으면 장바구니를 날린다.
+					HomeController.session.removeAttribute("cartList");
+					
+					out.println("<script>");
+					out.println("alert('정상 처리되었습니다!')");
+					out.println("location.href='/'");
+					out.println("</script>");
+				} else {
+					// 실패시 홈으로 이동
+					out.println("<script>");
+					out.println("alert('상품구입에 실패하였습니다.')");
+					out.println("location.href='/'");
+					out.println("</script>");
 				}
 		}
 		

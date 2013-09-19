@@ -71,6 +71,10 @@ public class ItemsListAction {
 		return dao.getMaxBuyCode();
 	}
 	
+	public int setBuyItems(SalesList saleslist){
+		// 상품 구입 처리
+		return dao.setBuyItems(saleslist);
+	}
 	// add method
 	public void convertDBcontents(Items item){
 		// db에 줄바꿈과 공백 처리

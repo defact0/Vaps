@@ -15,6 +15,7 @@ public interface ItemsInterface {
 	public int setItemsToredUpdate(Items item); //상품재고 update
 	public List<Items> getCategoryContents(String i_category); // 카테고리별로 출력
 	
-	public int getMaxBuyCode();
+	public int getMaxBuyCode(); // 상품코드 얻기
+	public int setBuyItems(SalesList saleslist); //상품 구입 처리
 
 }
