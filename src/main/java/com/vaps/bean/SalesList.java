@@ -8,8 +8,15 @@ public class SalesList {
 	private String s_item_name;
 	private int s_buy_code;
 	private int s_buy_cnt;
+	private int s_buy_price;
 	private Date s_buy_date;
 	
+	public int getS_buy_price() {
+		return s_buy_price;
+	}
+	public void setS_buy_price(int s_buy_price) {
+		this.s_buy_price = s_buy_price;
+	}
 	public int getS_num() {
 		return s_num;
 	}

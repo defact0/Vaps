@@ -203,15 +203,21 @@ public class SalesController{
 		@RequestMapping(value = "/itemsPurchase")
 		public void itemsPurchase(HttpServletRequest request,HttpServletResponse response) throws IOException{
 			request.setCharacterEncoding("UTF-8");
-			System.out.println("/itemsPurchase");
 			CartBiz cartBiz = new CartBiz();
+			// s_buy_code는 sales 테이블에서 max값을 가져온다
+			
+			System.out.println(	HomeController.session.getAttribute("id")); // s_id는 현재 세션의 id값을 가져온다
 			ArrayList<Items> cartList = cartBiz.getCartList(request);
 				for (int i = 0; i < cartList.size(); i++){
-					
-					System.out.println(i+"번째 이름: "+cartList.get(i).getI_name());
-					System.out.println(i+"번째 가격:"+cartList.get(i).getI_price());
-					System.out.println(i+"번째 수량:"+cartList.get(i).getBuyCount());
+					// s_num, 시퀀스
+					// s_id
+					// s_buy_code
+					System.out.println(i+"번째 이름: "+cartList.get(i).getI_name()); //s_item_name
+					System.out.println(i+"번째 가격:"+cartList.get(i).getI_price()); //s_buy_price
+					System.out.println(i+"번째 수량:"+cartList.get(i).getBuyCount()); //s_buy_cnt
+					// s_buy_date, 디폴트
+
 				}
 		}
-
+		
 }
