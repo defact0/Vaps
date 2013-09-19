@@ -11,6 +11,7 @@
 		<typeAlias alias="members" type="com.vaps.bean.Members"/>
 		<typeAlias alias="board" type="com.vaps.bean.BoardList"/>
 		<typeAlias alias="items" type="com.vaps.bean.Items"/>
+		<typeAlias alias="sales" type="com.vaps.bean.SalesList"/>
 		<typeAlias alias="al" type="java.util.List"/>
 		<typeAlias alias="Map" type="java.util.Map"/>
 	</typeAliases>

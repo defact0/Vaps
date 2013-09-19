@@ -56,4 +56,13 @@ public class ItemsDAO extends SqlSessionDaoSupport implements ItemsInterface {
 		return getSqlSession().selectList("ItemsInterface.getCategoryContents", i_category);
 	}
 	
+	//
+	@Override
+	public int getMaxBuyCode() {
+		// 최근 상품코드 정보얻어오기
+		return getSqlSession().selectOne("ItemsInterface.getMaxBuyCode");
+	}
+	
+	
+	
 }

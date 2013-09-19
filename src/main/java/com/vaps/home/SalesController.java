@@ -205,7 +205,8 @@ public class SalesController{
 			request.setCharacterEncoding("UTF-8");
 			CartBiz cartBiz = new CartBiz();
 			// s_buy_code는 sales 테이블에서 max값을 가져온다
-			
+			ItemsListAction item = new ItemsListAction(itemsDAO);
+			System.out.println("maxBuyCode:"+item.getMaxBuyCode());
 			System.out.println(	HomeController.session.getAttribute("id")); // s_id는 현재 세션의 id값을 가져온다
 			ArrayList<Items> cartList = cartBiz.getCartList(request);
 				for (int i = 0; i < cartList.size(); i++){

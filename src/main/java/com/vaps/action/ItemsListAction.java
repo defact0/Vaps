@@ -3,6 +3,7 @@ package com.vaps.action;
 import java.util.List;
 import com.vaps.bean.Items;
 import com.vaps.dao.ItemsDAO;
+import com.vaps.bean.SalesList;
 
 
 public class ItemsListAction {
@@ -64,7 +65,11 @@ public class ItemsListAction {
 		// 상품재고update
 		return dao.delContents(i_name);
 	}
-	
+	//
+	public int getMaxBuyCode(){
+		// 최근 상품코드 번호 가져오기
+		return dao.getMaxBuyCode();
+	}
 	
 	// add method
 	public void convertDBcontents(Items item){

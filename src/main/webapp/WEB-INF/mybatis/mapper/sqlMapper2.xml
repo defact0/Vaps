@@ -5,6 +5,7 @@
 		<result property="I_DESCRIPTION" column="I_DESCRIPTION" jdbcType="NCLOB" javaType="java.lang.String" /> 
 		<result property="I_PIC" column="I_PIC" jdbcType="BLOB" javaType="java.lang.String" /> 
 	</resultMap>
+	<resultMap type="sales" id="sales"/>
 	<resultMap type="al" id="al" />
 
 	<select id="getItemsList" resultType="items">
@@ -30,5 +31,8 @@
 	</delete>
 	<select id="getCategoryContents" resultType="items">
 		SELECT * FROM ITEMS WHERE I_CATEGORY=#{i_category}
+	</select>
+	<select id="getMaxBuyCode" resultType="Integer">
+		SELECT S_BUY_CODE FROM SALES_GET_CODE
 	</select>
 </mapper>
