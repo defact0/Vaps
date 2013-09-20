@@ -13,30 +13,33 @@
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 <br/>
 	<div style="padding: 1px 20px 30px 60px;">
-			<img src="/images/members/buyHistory.jpg"/>
+			<img src="/images/members/buyDetailed.jpg"/>
 		<table id="two_table" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
 			<tr>
-			<td bgcolor="cyan" align="center" height="35">누적금액</td>
-			<td colspan="4">&nbsp;${buyTotalMoney } 원</td>
+				<td width="200" bgcolor="cyan" align="center" height="35">판매코드</td>
+				<td colspan="2">&nbsp;${buyCode}</td>
+			</tr>
+			<tr>
+				<td bgcolor="cyan" align="center" height="35">구입날짜</td>
+				<td colspan="2">&nbsp;${buyDate}</td>
 			</tr>
 			<tr bgcolor="cyan" align="center" height="35">
-				<td width="100">판매코드</td>
-				<td width="150">구입날짜</td>
-				<td width="100">구입개수</td>
-				<td width="150">구입가격</td>
-				<td width="100">상세내역</td>
+				<td width="200">제품이름</td>
+				<td width="200">구입개수</td>
+				<td width="200">구입가격</td>
 			</tr>
 			<c:forEach var="buylist" items="${buylist}">
 				<tr height="25">
-					<td align="center">${buylist.s_buy_code}</td>
-					<td align="center">${buylist.s_buy_date}</td>
+					<td align="center">${buylist.s_item_name}</td>
 					<td align="center">${buylist.s_buy_cnt}</td>
-					<td align="center">${buylist.s_buy_price} 원</td>
-					<td align="center">
-						<a href="/buyDetailed?code=${buylist.s_buy_code}">상세내역</a>
-					</td>
+					<td align="center">${buylist.s_buy_price}원</td>
 				</tr>
 			</c:forEach>
+			<tr>
+				<td bgcolor="cyan" align="center" height="35">지불금액</td>
+				<td colspan="2">&nbsp;${buyMoney}원</td>
+				
+			</tr>
 		</table>
 	</div>
 

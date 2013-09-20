@@ -73,6 +73,11 @@ public class ItemsDAO extends SqlSessionDaoSupport implements ItemsInterface {
 		// 구입 내역보기(아이디 검색)
 		return getSqlSession().selectList("ItemsInterface.getBuyHistory",id);
 	}
+	@Override
+	public List<SalesList> getBuyDetailed(int code) {
+		// 구입 내역보기(아이디 검색)
+		return getSqlSession().selectList("ItemsInterface.getBuyDetailed",code);
+	}
 	
 	
 	

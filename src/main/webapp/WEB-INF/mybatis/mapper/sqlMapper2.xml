@@ -41,7 +41,10 @@
 	<select id="getBuyHistory" resultType="sales" parameterType="java.lang.String">
 		SELECT DISTINCT S.S_BUY_CODE AS S_BUY_CODE, S.S_BUY_DATE AS S_BUY_DATE, SS.S_BUY_CNT AS S_BUY_CNT, SS.S_BUY_PRICE AS S_BUY_PRICE
 		FROM SALES S, (SELECT S_BUY_CODE, SUM(S_BUY_CNT) AS S_BUY_CNT,SUM(S_BUY_PRICE) AS S_BUY_PRICE FROM SALES GROUP BY S_BUY_CODE) SS
-		WHERE S.S_BUY_CODE = SS.S_BUY_CODE AND S.S_ID='a'
+		WHERE S.S_BUY_CODE = SS.S_BUY_CODE AND S.S_ID=#{id}
 		order by S_BUY_CODE DESC
+	</select>
+	<select id="getBuyDetailed" resultType="sales" parameterType="Integer">
+		SELECT * FROM SALES WHERE S_BUY_CODE=#{code}
 	</select>
 </mapper>

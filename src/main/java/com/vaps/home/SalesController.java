@@ -243,6 +243,13 @@ public class SalesController{
 				ItemsListAction item = new ItemsListAction(itemsDAO);
 				if (HomeController.session != null && id != "") {
 					model.addAttribute("buylist", item.getBuyHistory(id));
+					
+					int total=0;
+					for(int i=0; i<item.getBuyHistory(id).size(); i++){
+						total+= item.getBuyHistory(id).get(i).getS_buy_price();
+					}
+					model.addAttribute("buyTotalMoney", total); //누적 구입금액
+					
 					result = "member/buyHistory";
 				}
 
@@ -252,5 +259,31 @@ public class SalesController{
 
 			return result;
 		}
-		
+		//주문 기록 상세히 보기
+		@RequestMapping(value = "/buyDetailed")
+		public String buyDetailed(HttpServletRequest request, Model model){
+			String result = "home";
+			int code = Integer.parseInt(request.getParameter("code"));
+			try {
+				ItemsListAction item = new ItemsListAction(itemsDAO);
+				if (HomeController.session != null && HomeController.session.getAttribute("id") != "") {
+					model.addAttribute("buylist", item.getBuyDetailed(code));
+					model.addAttribute("buyCode", item.getBuyDetailed(code).get(0).getS_buy_code()); //판매코드
+					model.addAttribute("buyDate", item.getBuyDetailed(code).get(0).getS_buy_date()); //구입날짜
+					
+					int total=0;
+					for(int i=0; i<item.getBuyDetailed(code).size(); i++){
+						total+= item.getBuyDetailed(code).get(i).getS_buy_price();
+					}
+					model.addAttribute("buyMoney", total); //구입금액
+					
+					result = "member/buyDetailed";
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			return result;
+		}
 }

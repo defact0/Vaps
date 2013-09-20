@@ -18,5 +18,5 @@ public interface ItemsInterface {
 	public int getMaxBuyCode(); // 상품코드 얻기
 	public int setBuyItems(SalesList saleslist); //상품 구입 처리
 	public List<SalesList> getBuyHistory(String id); //구입 내역보기(아이디 검색)
-
+	public List<SalesList> getBuyDetailed(int code); //구입 내역 자세히 보기(상품코드 검색)
 }

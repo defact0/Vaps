@@ -79,6 +79,10 @@ public class ItemsListAction {
 		// 상품 구입 내역보기(아이디로 검색)
 		return dao.getBuyHistory(id);
 	}
+	public List<SalesList> getBuyDetailed(int code){
+		//구입 내역 자세히 보기(상품코드 검색)
+		return dao.getBuyDetailed(code);
+	}
 	// add method
 	public void convertDBcontents(Items item){
 		// db에 줄바꿈과 공백 처리
