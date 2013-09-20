@@ -9,13 +9,12 @@
 <title>Vaps shopping mall</title>
 
 </head>
-<body margin="0"padding"0">
+<body margin="0" padding="0">
 
 	<table width="100%" cellspacing="0">
 		<tr>
 			<td>
-				<img src="/images/guest/mainGuest1.jpg"/>
-				<img src="/images/guest/mainGuest2.jpg"/>
+				<img src="/images/guest/mainGuest.jpg"/>
 			</td>
 		</tr>
 		<tr>

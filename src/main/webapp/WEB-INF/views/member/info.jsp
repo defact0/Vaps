@@ -7,6 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Vaps shopping mall</title>
+<link rel="styleSheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/docStyle.css" />
 </head>
 <body>
 	<%@include file="/WEB-INF/views/top/title.jsp"%>

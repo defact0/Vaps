@@ -7,6 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Vaps shopping mall</title>
+<link rel="styleSheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/docStyle.css" />
 </head>
 <body>
 	<%@include file="/WEB-INF/views/top/title.jsp"%>
@@ -14,7 +16,7 @@
 <br/>
 	<div style="padding: 1px 20px 30px 60px;">
 			<img src="/images/members/buyHistory.jpg"/>
-		<table id="two_table" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
+		<table border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
 			<tr>
 			<td bgcolor="cyan" align="center" height="35">누적금액</td>
 			<td colspan="4">&nbsp;${buyTotalMoney } 원</td>
@@ -30,10 +32,10 @@
 				<tr height="25">
 					<td align="center">${buylist.s_buy_code}</td>
 					<td align="center">${buylist.s_buy_date}</td>
-					<td align="center">${buylist.s_buy_cnt}</td>
-					<td align="center">${buylist.s_buy_price} 원</td>
+					<td align="center">${buylist.s_buy_cnt}개</td>
+					<td align="center">${buylist.s_buy_price}원</td>
 					<td align="center">
-						<a href="/buyDetailed?code=${buylist.s_buy_code}">상세내역</a>
+						<a href="/buyDetailed?code=${buylist.s_buy_code}">보기</a>
 					</td>
 				</tr>
 			</c:forEach>

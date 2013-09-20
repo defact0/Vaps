@@ -8,55 +8,40 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Vaps shopping mall</title>
 <link rel="styleSheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/bt.css" />
+	href="${pageContext.request.contextPath}/css/docStyle.css" />
 </head>
 <body>
 	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
+	<br/>
 	<div style="padding: 1px 20px 30px 60px;">
 		<img src="/images/sales/ItemsContent.jpg"/>
 		<table width="820" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
 			<tr>
-				<td width="300">
-					<img src="/upload/${ilist.i_pic}" width="300" height="200"/>
-				</td>
-				<td width="250" align="center">
-				주문관련 기능이 들어갈 자리<br/>
-				[수량], [장바구니] 설정<br/>
-				<a href="/CartListAdd?str=${ilist.i_name}" class="button">장바구니 담기</a>
-				</td>
+				<td rowspan="4" width="300"><img src="/upload/${ilist.i_pic}" width="300" height="200" /></td>
+				<td width="200" bgcolor="#A6CAF0" align="center">상품명</td>
+				<td>&nbsp;${ilist.i_name}</td>
 			</tr>
 			<tr>
-				<td width="100" bgcolor="#A6CAF0" align="center">i_name:</td>
-				<td width="600">&nbsp;${ilist.i_name}</td>
-			</tr>
-			<tr>
-				<td bgcolor="#A6CAF0" align="center">i_category:</td>
+				<td bgcolor="#A6CAF0" align="center">상품 카테고리</td>
 				<td>&nbsp;${ilist.i_category}</td>
 			</tr>
 			<tr>
-				<td bgcolor="#A6CAF0" align="center">i_price:</td>
-				<td>&nbsp;${ilist.i_price}</td>
+				<td bgcolor="#A6CAF0" align="center">상품 가격</td>
+				<td>&nbsp;${ilist.i_price}원</td>
 			</tr>
 			<tr>
-				<td bgcolor="#A6CAF0" align="center">i_pic:</td>
-				<td>&nbsp;${ilist.i_pic}</td>
+				<td bgcolor="#A6CAF0" align="center">남은 수량</td>
+				<td>&nbsp;${ilist.is_count}개 남았습니다.</td>
 			</tr>
 			<tr>
-				<td bgcolor="#A6CAF0" align="center">i_description:</td>
-				<td>&nbsp;${ilist.i_description}</td>
+				<td bgcolor="#A6CAF0" align="center">상품 설명</td>
+				<td colspan="2">${ilist.i_description}</td>
 			</tr>
 			<tr>
-				<td bgcolor="#A6CAF0" align="center">is_name:</td>
-				<td>&nbsp;${ilist.is_name}</td>
-			</tr>
-			<tr>
-				<td bgcolor="#A6CAF0" align="center">is_count:</td>
-				<td>&nbsp;${ilist.is_count}</td>
-			</tr>
-			<tr>
-			<td style='border-left:none;border-right:none;border-top:none;border-bottom:none;'>
-			<a href="/itemslist" class="button">목록</a></td>
+			<td colspan="3" align="right" style='border-left:none;border-right:none;border-top:none;border-bottom:none;'>
+			<a href="/AllItems" class="button">목록</a>
+			<a href="/CartListAdd?str=${ilist.i_name}" class="button">장바구니 담기</a></td>
 		</tr>
 		</table>
 	<br>

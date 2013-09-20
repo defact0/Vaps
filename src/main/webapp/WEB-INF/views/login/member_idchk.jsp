@@ -7,7 +7,7 @@
 <html>
 <head>
 <link rel="styleSheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/bt.css" />
+	href="${pageContext.request.contextPath}/css/docStyle.css" />
 <link rel="styleSheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/style.css" />
 <%--

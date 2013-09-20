@@ -8,15 +8,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Vaps shopping mall</title>
 <link rel="styleSheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/bt.css" />
+	href="${pageContext.request.contextPath}/css/docStyle.css" />
 </head>
 <body>
 	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
-
+<br/>
 	<div style="padding: 1px 20px 30px 60px;">
 	<img src="/images/sales/AllItems.jpg"/>
-		<table id="two_table">
+		<table border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
 			<tr bgcolor="cyan" align="center" height="35">
 				<td width="100">카테고리</td>
 				<td width="200">상품이름</td>
@@ -26,7 +26,7 @@
 				<tr height="25">
 					<td width="100" align="center">${ilist.i_category}</td>
 					<td width="400"><a href="/ViewItemsContent?num=${ilist.i_num}&str=${ilist.i_name}"> ${ilist.i_name} </a></td>
-					<td width="150" align="center">${ilist.i_price}</td>
+					<td width="150" align="center">${ilist.i_price}원</td>
 				</tr>
 			</c:forEach>
 		</table>

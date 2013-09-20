@@ -7,6 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Vaps shopping mall</title>
+<link rel="styleSheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/docStyle.css" />
 </head>
 <body>
 	<%@include file="/WEB-INF/views/top/title.jsp"%>
@@ -31,7 +33,7 @@
 			<c:forEach var="buylist" items="${buylist}">
 				<tr height="25">
 					<td align="center">${buylist.s_item_name}</td>
-					<td align="center">${buylist.s_buy_cnt}</td>
+					<td align="center">${buylist.s_buy_cnt}개</td>
 					<td align="center">${buylist.s_buy_price}원</td>
 				</tr>
 			</c:forEach>

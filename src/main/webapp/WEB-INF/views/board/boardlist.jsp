@@ -8,7 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Vaps shopping mall</title>
 <link rel="styleSheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/bt.css" />
+	href="${pageContext.request.contextPath}/css/docStyle.css" />
+
 </head>
 <body>
 	<%@include file="/WEB-INF/views/top/title.jsp"%>
@@ -16,7 +17,7 @@
 
 	<div style="padding: 1px 20px 30px 60px;">
 	<img src="/images/members/FreeBoard.jpg"/>
-		<table id="two_table" width="820" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
+		<table width="820" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
 			<tr bgcolor="cyan" align="center" height="35">
 				<td width="70">번호</td>
 				<td width="400">제목</td>

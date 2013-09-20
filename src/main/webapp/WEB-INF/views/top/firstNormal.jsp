@@ -9,39 +9,31 @@
 <title>Vaps shopping mall</title>
 </head>
 <body>
-<h1>일반</h1>
-		<table>
-			<tr>
-				<td colspan=2>Session Info</td>
-			</tr>
-			<tr>
-				<td>id</td>
-				<td>${members.m_id }</td>
-			</tr>
-			<tr>
-				<td>nick</td>
-				<td>${members.m_nick }</td>
-			</tr>
-			<tr>
-				<td>pwd</td>
-				<td>${members.m_pwd }</td>
-			</tr>
-			<tr>
-				<td>phone</td>
-				<td>${members.m_phone }</td>
-			</tr>
-			<tr>
-				<td>addr</td>
-				<td>${members.m_addr }</td>
-			</tr>
-			<tr>
-				<td>point</td>
-				<td>${members.m_point }</td>
-			</tr>
-			<tr>
-				<td>auth</td>
-				<td>${members.m_auth }</td>
-			</tr>
-			</table>
+<body margin="0" padding="0">
+
+	<table width="100%" cellspacing="0">
+		<tr>
+			<td>
+				<br/>
+				<br/>
+				<br/>
+				DB에서 정보들을 받아 출력하는 공간
+				<br/>
+				<br/>
+				<br/>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="yellow">
+				<img src="/images/normal/norMain.jpg"/>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#00ffff">
+				<img src="/images/normal/norMain2.jpg"/>
+			</td>
+		</tr>
+	</table>
+
 </body>
 </html>

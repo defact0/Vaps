@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Vaps shopping mall</title>
 <link rel="styleSheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/bt.css" />
+	href="${pageContext.request.contextPath}/css/docStyle.css" />
 	
 <script language='javascript'>
 	function submitForm1() { 
@@ -45,7 +45,7 @@ A:hover {COLOR:white; text-decoration:underline}
 <body>
 	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
-
+<br/>
 	<div style="padding: 1px 20px 30px 60px;">
 		<img src="/images/sales/CartList.jpg"/>
 
@@ -64,16 +64,14 @@ A:hover {COLOR:white; text-decoration:underline}
 			} else {
 		%>
 				<form method="post" name="myForm">
-					<table width="820" >
+				<table width="820" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
 						<tr align="center" bgcolor="orange">
 							<td>번호</td>
 							<td>상품이미지</td>
 							<td>상품명</td>
 							<td>가격</td>
 							<td>수량</td>
-							<td align="center">
-								<input type="button" class="button" value="삭제" onclick="submitForm1();"> 
-							</td>
+							<td>상품선택</td>
 						</tr>
 						<%
 							int num = 1;
@@ -105,10 +103,13 @@ A:hover {COLOR:white; text-decoration:underline}
 								결제금액 : </font><font color="black" size="8"><%=totalMoney%>원</font></td>
 					</tr>
 					<tr>
-						<td align="right"><input type="button" class="button" value="구매하기" onclick="submitForm2();"> </td>
+						<td align="right">
+						<input type="button" class="button" value="선택삭제" onclick="submitForm1();">
+						<input type="button" class="button" value="최종구매" onclick="submitForm2();"> 
+						</td>
 					</tr>
 				</table>
-						</form>
+		</form>
 		<%
 			}
 		%>
