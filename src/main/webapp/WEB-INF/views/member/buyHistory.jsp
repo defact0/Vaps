@@ -13,39 +13,27 @@
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 <br/>
 	<div style="padding: 1px 20px 30px 60px;">
-			<img src="/images/members/InfoProfile.jpg"/>
-		<table width="260">
-			<tr>
-				<td width="50">id</td>
-				<td width="10">:</td>
-				<td width="200">${members.m_id }</td>
+			<h1> 구입내역</h1>
+		<table id="two_table">
+			<tr bgcolor="cyan" align="center" height="35">
+				<td width="150">판매코드</td>
+				<td width="220">구입날짜</td>
+				<td width="150">구입개수</td>
+				<td width="200">구입가격</td>
+				<td width="100">상세내역</td>
 			</tr>
-			<tr>
-				<td>nick</td>
-				<td width="10">:</td>
-				<td>${members.m_nick }</td>
-			</tr>
-			<tr>
-				<td>pwd</td>
-				<td width="10">:</td>
-				<td><font color="red">암호화처리 되었습니다.</font></td>
-			</tr>
-			<tr>
-				<td>phone</td>
-				<td width="10">:</td>
-				<td>${members.m_phone }</td>
-			</tr>
-			<tr>
-				<td>addr</td>
-				<td width="10">:</td>
-				<td>${members.m_addr }</td>
-			</tr>
-			<tr>
-				<td>point</td>
-				<td width="10">:</td>
-				<td>${members.m_point }</td>
-			</tr>
-			</table>
+			<c:forEach var="buylist" items="${buylist}">
+				<tr height="25">
+					<td align="center">${buylist.s_buy_code}</td>
+					<td align="center">${buylist.s_buy_date}</td>
+					<td align="center">${buylist.s_buy_cnt}</td>
+					<td align="center">${buylist.s_buy_price}</td>
+					<td align="center">
+						<a href="/ViewItemsContent?str=${buylist.s_buy_code}">상세내역</a>
+					</td>
+				</tr>
+			</c:forEach>
+		</table>
 	</div>
 
 </body>

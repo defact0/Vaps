@@ -48,6 +48,7 @@
 		<li class="sub"><a href="#"><font color="#F2D235">${members.m_nick } 님</font> </a>
 			<ul>
 				<li><a href="/info">나의 정보</a></li>
+				<li><a href="/buyHistory">구입 내역</a></li>
 				<li><a href="/TodayList">오늘 본 상품</a></li>
 				<li><a href="/CartList">장바구니</a></li>
 				<li><a href="/logout">Sign out</a></li>

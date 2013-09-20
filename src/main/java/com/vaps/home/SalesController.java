@@ -236,8 +236,21 @@ public class SalesController{
 		}
 		//주문기록
 		@RequestMapping(value = "/buyHistory")
-		public void buyHistory(HttpServletRequest request,HttpServletResponse response){
-			
+		public String buyHistory(HttpServletRequest request, Model model){
+			String result = "home";
+			String id = (String) HomeController.session.getAttribute("id");
+			try {
+				ItemsListAction item = new ItemsListAction(itemsDAO);
+				if (HomeController.session != null && id != "") {
+					model.addAttribute("buylist", item.getBuyHistory(id));
+					result = "member/buyHistory";
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			return result;
 		}
 		
 }

@@ -75,6 +75,10 @@ public class ItemsListAction {
 		// 상품 구입 처리
 		return dao.setBuyItems(saleslist);
 	}
+	public List<SalesList> getBuyHistory(String id){
+		// 상품 구입 내역보기(아이디로 검색)
+		return dao.getBuyHistory(id);
+	}
 	// add method
 	public void convertDBcontents(Items item){
 		// db에 줄바꿈과 공백 처리
