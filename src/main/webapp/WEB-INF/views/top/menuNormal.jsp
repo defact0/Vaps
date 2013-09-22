@@ -24,6 +24,7 @@
 <body>
  
 	<ul id="navigation">
+		<li><img src="/images/Logo.jpg"/></li>
 
 		<li><a href="/">HOME</a></li>
 
@@ -45,7 +46,7 @@
 			
 		<li><a href="/board">Free board</a></li>
 		
-		<li class="sub"><a href="#"><font color="#F2D235">${members.m_nick } 님</font> </a>
+		<li class="sub"><a href="#">${members.m_nick } 님</a>
 			<ul>
 				<li><a href="/info">나의 정보</a></li>
 				<li><a href="/buyHistory">구입 내역</a></li>

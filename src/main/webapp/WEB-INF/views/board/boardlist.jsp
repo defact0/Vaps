@@ -12,13 +12,11 @@
 
 </head>
 <body>
-	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
-
 	<div style="padding: 1px 20px 30px 60px;">
 	<img src="/images/members/FreeBoard.jpg"/>
 		<table width="820" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
-			<tr bgcolor="cyan" align="center" height="35">
+			<tr id="setTd"align="center" height="35">
 				<td width="70">번호</td>
 				<td width="400">제목</td>
 				<td width="100">작성자</td>

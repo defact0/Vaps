@@ -3,6 +3,11 @@ table,tr,td {
 	font-size: 15px;
 }
 
+#setTd{
+	background: #34302d;
+	color:white;
+}
+
 .button
 {        
 	display: inline-block;

@@ -11,30 +11,28 @@
 	href="${pageContext.request.contextPath}/css/docStyle.css" />
 </head>
 <body>
-	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
-
 	<div style="padding: 1px 20px 30px 60px;">
 	<img src="/images/members/FreeBoard.jpg"/>
 	<table width="820" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
 		<tr height="30">
-			<td width="100" bgcolor="pink" align="center">&nbsp;NUM</td>
+			<td width="100" id="setTd" align="center">&nbsp;NUM</td>
 			<td colspan="5">&nbsp;${blist.b_num}</td>
 		</tr>
 		<tr height="30">
-			<td bgcolor="pink" align="center">&nbsp;WRITER</td>
+			<td id="setTd" align="center">&nbsp;WRITER</td>
 			<td width="150">&nbsp;${blist.b_id}</td>
-			<td bgcolor="pink" align="center" width="90">&nbsp;DATE</td>
+			<td id="setTd" align="center" width="90">&nbsp;DATE</td>
 			<td width="100" align="center">&nbsp;${blist.b_date}</td>
-			<td bgcolor="pink" align="center" width="80">&nbsp;COUNT</td>
+			<td id="setTd" align="center" width="80">&nbsp;COUNT</td>
 			<td align="center" width="50">&nbsp;${blist.b_readcount}</td>
 		</tr>
 		<tr height="30">
-			<td bgcolor="pink" align="center">&nbsp;TITLE</td>
+			<td id="setTd" align="center">&nbsp;TITLE</td>
 			<td colspan="5">&nbsp;${blist.b_sub}</td>
 		</tr>
 		<tr height="200">
-			<td bgcolor="pink" align="center">&nbsp;CONTENTS</td>
+			<td id="setTd" align="center">&nbsp;CONTENTS</td>
 			<td colspan="5">&nbsp;${blist.b_contents}</td>
 		</tr>
 		<tr>

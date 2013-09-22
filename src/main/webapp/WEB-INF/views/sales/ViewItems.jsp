@@ -11,13 +11,12 @@
 	href="${pageContext.request.contextPath}/css/docStyle.css" />
 </head>
 <body>
-	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 <br/>
 	<div style="padding: 1px 20px 30px 60px;">
 	<img src="/images/sales/CategoryItems.jpg"/>
 		<table border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
-			<tr bgcolor="cyan" align="center" height="35">
+			<tr id="setTd" align="center" height="35">
 				<td width="100">카테고리</td>
 				<td width="200">상품이름</td>
 				<td width="150">가격</td>

@@ -11,40 +11,33 @@
 	href="${pageContext.request.contextPath}/css/docStyle.css" />
 </head>
 <body>
-	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 <br/>
 	<div style="padding: 1px 20px 30px 60px;">
 			<img src="/images/members/InfoProfile.jpg"/>
-		<table width="260">
+		<table width="260" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
 			<tr>
-				<td width="50">id</td>
-				<td width="10">:</td>
+				<td id="setTd">id</td>
 				<td width="200">${members.m_id }</td>
 			</tr>
 			<tr>
-				<td>nick</td>
-				<td width="10">:</td>
+				<td id="setTd">nick</td>
 				<td>${members.m_nick }</td>
 			</tr>
 			<tr>
-				<td>pwd</td>
-				<td width="10">:</td>
+				<td id="setTd">pwd</td>
 				<td><font color="red">암호화처리 되었습니다.</font></td>
 			</tr>
 			<tr>
-				<td>phone</td>
-				<td width="10">:</td>
+				<td id="setTd">phone</td>
 				<td>${members.m_phone }</td>
 			</tr>
 			<tr>
-				<td>addr</td>
-				<td width="10">:</td>
+				<td id="setTd">addr</td>
 				<td>${members.m_addr }</td>
 			</tr>
 			<tr>
-				<td>point</td>
-				<td width="10">:</td>
+				<td id="setTd">point</td>
 				<td>${members.m_point }</td>
 			</tr>
 			</table>

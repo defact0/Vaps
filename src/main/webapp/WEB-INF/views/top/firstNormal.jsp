@@ -9,31 +9,6 @@
 <title>Vaps shopping mall</title>
 </head>
 <body>
-<body margin="0" padding="0">
-
-	<table width="100%" cellspacing="0">
-		<tr>
-			<td>
-				<br/>
-				<br/>
-				<br/>
-				DB에서 정보들을 받아 출력하는 공간
-				<br/>
-				<br/>
-				<br/>
-			</td>
-		</tr>
-		<tr>
-			<td bgcolor="yellow">
-				<img src="/images/normal/norMain.jpg"/>
-			</td>
-		</tr>
-		<tr>
-			<td bgcolor="#00ffff">
-				<img src="/images/normal/norMain2.jpg"/>
-			</td>
-		</tr>
-	</table>
-
+<h1>일반계정</h1>
 </body>
 </html>

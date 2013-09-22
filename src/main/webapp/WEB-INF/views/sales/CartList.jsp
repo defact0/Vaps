@@ -43,7 +43,6 @@ A:hover {COLOR:white; text-decoration:underline}
 </style>
 </head>
 <body>
-	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 <br/>
 	<div style="padding: 1px 20px 30px 60px;">
@@ -65,7 +64,7 @@ A:hover {COLOR:white; text-decoration:underline}
 		%>
 				<form method="post" name="myForm">
 				<table width="820" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
-						<tr align="center" bgcolor="orange">
+						<tr align="center" id="setTd">
 							<td>번호</td>
 							<td>상품이미지</td>
 							<td>상품명</td>

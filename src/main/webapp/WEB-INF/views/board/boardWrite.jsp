@@ -26,9 +26,7 @@
 </script>
 </head>
 <body>
-	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
-
 	<div style="padding: 1px 20px 30px 60px;">
 		<img src="/images/members/FreeBoard.jpg"/>
 		<form action="/boardWrite" name="writeFrm" method="post"

@@ -26,7 +26,6 @@
 </script>
 </head>
 <body>
-	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 	<br/>
 	<%-- 

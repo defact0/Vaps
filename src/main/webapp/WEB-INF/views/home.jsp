@@ -9,7 +9,6 @@
 <title>Vaps shopping mall</title>
 </head>
 <body>
-	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 
    <c:if test="${members.m_auth==0}" var="result">

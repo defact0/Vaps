@@ -13,7 +13,7 @@
 
 	<table width="100%" cellspacing="0">
 		<tr>
-			<td>
+			<td bgcolor="#757575">
 				<img src="/images/guest/mainGuest.jpg"/>
 			</td>
 		</tr>

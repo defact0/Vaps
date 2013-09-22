@@ -27,9 +27,7 @@
 </script>
 </head>
 <body>
-	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
-
 	<form action="/itemsModify?str=${ilist.i_name}" name="modiFrm" method="post"
 		onsubmit="return formCheck();">
 		<div style="padding: 1px 20px 30px 60px;">

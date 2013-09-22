@@ -8,7 +8,7 @@ body {
 #navigation {
 	margin: 0;
 	padding: 0 1em;
-	background: #000;
+	background: #34302d;
 	height: 3em;
 	list-style: none;
 }
@@ -23,7 +23,7 @@ body {
 #navigation > li > a {
 	float: left;
 	height: 100%;
-	color: #c60;
+	color: white;
 	text-decoration: none;
 	line-height: 3;
 	font-weight: bold;
@@ -31,7 +31,7 @@ body {
 }
 
 #navigation > li > a:hover {
-	color: orange;
+	color: white;
 	text-decoration: underline;
 }
 
@@ -44,7 +44,7 @@ body {
 	margin: 0;
 	padding: 0.5em 0;
 	list-style: none;
-	background: #a40;
+	background: #34302d;
 	position: absolute;
 	top: -1000em;
 }
@@ -64,7 +64,7 @@ body {
 }
 
 #navigation > li.sub ul li a:hover {
-	background: #c60;
+	background: green;
 	text-decoration: underline;
 }
 

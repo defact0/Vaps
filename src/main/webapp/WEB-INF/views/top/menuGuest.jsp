@@ -23,7 +23,7 @@
 <body>
  
 	<ul id="navigation">
-
+		<li><img src="/images/Logo.jpg"/></li>
 		<li><a href="/">HOME</a></li>
 
 		<li><a href="/login">sign in</a></li>

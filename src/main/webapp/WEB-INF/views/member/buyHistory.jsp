@@ -11,17 +11,16 @@
 	href="${pageContext.request.contextPath}/css/docStyle.css" />
 </head>
 <body>
-	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 <br/>
 	<div style="padding: 1px 20px 30px 60px;">
 			<img src="/images/members/buyHistory.jpg"/>
 		<table border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
 			<tr>
-			<td bgcolor="cyan" align="center" height="35">누적금액</td>
+			<td id="setTd" align="center" height="35">누적금액</td>
 			<td colspan="4">&nbsp;${buyTotalMoney } 원</td>
 			</tr>
-			<tr bgcolor="cyan" align="center" height="35">
+			<tr id="setTd" align="center" height="35">
 				<td width="100">판매코드</td>
 				<td width="150">구입날짜</td>
 				<td width="100">구입개수</td>

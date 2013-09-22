@@ -11,7 +11,6 @@
 	href="${pageContext.request.contextPath}/css/docStyle.css" />
 </head>
 <body>
-	<%@include file="/WEB-INF/views/top/title.jsp"%>
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 	<br/>
 	<div style="padding: 1px 20px 30px 60px;">
@@ -19,23 +18,23 @@
 		<table width="820" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
 			<tr>
 				<td rowspan="4" width="300"><img src="/upload/${ilist.i_pic}" width="300" height="200" /></td>
-				<td width="200" bgcolor="#A6CAF0" align="center">상품명</td>
+				<td width="200" align="center" id="setTd">상품명</td>
 				<td>&nbsp;${ilist.i_name}</td>
 			</tr>
 			<tr>
-				<td bgcolor="#A6CAF0" align="center">상품 카테고리</td>
+				<td align="center" id="setTd">상품 카테고리</td>
 				<td>&nbsp;${ilist.i_category}</td>
 			</tr>
 			<tr>
-				<td bgcolor="#A6CAF0" align="center">상품 가격</td>
+				<td align="center" id="setTd">상품 가격</td>
 				<td>&nbsp;${ilist.i_price}원</td>
 			</tr>
 			<tr>
-				<td bgcolor="#A6CAF0" align="center">남은 수량</td>
+				<td align="center" id="setTd">남은 수량</td>
 				<td>&nbsp;${ilist.is_count}개 남았습니다.</td>
 			</tr>
 			<tr>
-				<td bgcolor="#A6CAF0" align="center">상품 설명</td>
+				<td align="center" id="setTd">상품 설명</td>
 				<td colspan="2">${ilist.i_description}</td>
 			</tr>
 			<tr>
