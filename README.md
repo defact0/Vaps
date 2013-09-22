@@ -6,6 +6,7 @@ Vaps Project!
 밥스는 온라인 도시락 판매관리 Web site 입니다.
 
 ### [1] 최근까지 작업내용
+- web design fix 0923
 - DB 트리거 수정(재고수량) 0922
 - 구입기록 보기 기능 완성 0920
 - sales 테이블 작성, 구매하기 기능 완성 0919
@@ -46,4 +47,7 @@ ECLIPS KEPLER, MAVEN,	SQL DEVELOPER, GITHUB
 TOMCAT 7.0
 
 ### [6] 프로젝트 개발 스크린샷
+- 9월 1일
 ![설명:9월 1일 찍음](http://blogfiles.naver.net/20130901_61/ejungdo_1378027908726gNJtv_JPEG/vaps.JPG)
+- 9월 22일
+![설명:9월 22일 찍음](http://blogfiles.naver.net/20130923_272/ejungdo_1379862491075uPS5Q_PNG/0923.png)
