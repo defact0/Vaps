@@ -1,5 +1,8 @@
 오라클(oracle) 백업(exp), 복구(imp) 하기 (http://dscythe.tistory.com/entry/%EC%98%A4%EB%9D%BC%ED%81%B4-%EB%B0%B1%EC%97%85%EB%B3%B5%EA%B5%AC)
 
+exp userid=vaps/1111 full=y file=vaps_full.dmp
+imp userid=vaps/1111 file=vaps_full.dmp
+------
 Export와 Import는 가장 유용하게 그리고 자주 사용되는 백업관련 DBA ToolKit 입니다.
 
 
