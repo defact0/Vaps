@@ -47,4 +47,10 @@
 	<select id="getBuyDetailed" resultType="sales" parameterType="Integer">
 		SELECT * FROM SALES WHERE S_BUY_CODE=#{code}
 	</select>
+	<select id="getRandom" resultType="items">
+		SELECT * FROM ( SELECT * FROM ITEMS ORDER BY dbms_random.value ), ITEMSTORED WHERE rownum = 1
+	</select>
+	<select id="getRecentItem" resultType="sales" parameterType="java.lang.String">
+		SELECT * FROM SALES WHERE S_BUY_CODE=(SELECT MAX(S_BUY_CODE) FROM SALES WHERE S_ID=#{id})
+	</select>
 </mapper>

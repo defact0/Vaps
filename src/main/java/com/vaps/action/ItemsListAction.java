@@ -1,6 +1,7 @@
 package com.vaps.action;
 
 import java.util.List;
+
 import com.vaps.bean.Items;
 import com.vaps.dao.ItemsDAO;
 import com.vaps.bean.SalesList;
@@ -82,6 +83,14 @@ public class ItemsListAction {
 	public List<SalesList> getBuyDetailed(int code){
 		//구입 내역 자세히 보기(상품코드 검색)
 		return dao.getBuyDetailed(code);
+	}
+	public Items getRandom(){
+		//랜덤 상품 출력
+		return dao.getRandom();
+	}
+	public List<SalesList> getRecentItem(String id){
+		//최근 구입한 상품출력
+		return dao.getRecentItem(id);
 	}
 	// add method
 	public void convertDBcontents(Items item){

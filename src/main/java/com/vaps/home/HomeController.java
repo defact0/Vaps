@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.vaps.action.BoardListAction;
+import com.vaps.action.ItemsListAction;
 import com.vaps.action.MembersAction;
 import com.vaps.bean.BoardList;
 import com.vaps.bean.Members;
+import com.vaps.dao.ItemsDAO;
 import com.vaps.dao.MembersDAO;
 import com.vaps.userclass.EncryptionEncoding;
 
@@ -36,6 +38,9 @@ public class HomeController {
 	@Resource(name = "membersDao")
 	// @Autowired 도 왼쪽과 같은 자동주입이나 권장하지 않는 방법이다. 가능하면 @Resource를 쓰라
 	private MembersDAO membersDao;
+	
+	@Resource(name = "itemsDao")
+	private ItemsDAO itemsDAO;
 
 	// 암호화, 자동주입 등록(mybatis-context.xml에서)
 	// private EncryptionEncoding ee = new EncryptionEncoding();
@@ -85,7 +90,19 @@ public class HomeController {
 			e.printStackTrace();
 		}
 	}
-
+	
+// 로그인별 페이지출력
+	@RequestMapping(value = "/firstNormal")
+	public String firstNormal(Model model) {
+		String id = (String) HomeController.session.getAttribute("id");
+		ItemsListAction item = new ItemsListAction(itemsDAO);
+		model.addAttribute("ranDom", item.getRandom());
+		model.addAttribute("getRecentItem", item.getRecentItem(id));
+		model.addAttribute("getRecentItemCode", item.getRecentItem(id).get(0).getS_buy_code());
+		
+		
+		return "top/firstNormal";
+	}
 // --------------------------------------------------------------
 // 회원 관리
 	// 회원가입

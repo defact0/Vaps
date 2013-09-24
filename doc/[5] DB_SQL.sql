@@ -192,3 +192,9 @@ order by S_BUY_CODE DESC;
 
 -- 세부내역보기
 SELECT * FROM SALES WHERE S_BUY_CODE=1
+
+-- 랜덤출력(1개만)
+SELECT * FROM ( SELECT * FROM ITEMS ORDER BY dbms_random.value ) WHERE rownum = 1
+
+-- 최근에 구입한 상품(리스트로 받아야함)
+SELECT * FROM SALES WHERE S_BUY_CODE=(SELECT MAX(S_BUY_CODE) FROM SALES WHERE S_ID='a');

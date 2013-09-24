@@ -78,6 +78,16 @@ public class ItemsDAO extends SqlSessionDaoSupport implements ItemsInterface {
 		// 구입 내역보기(아이디 검색)
 		return getSqlSession().selectList("ItemsInterface.getBuyDetailed",code);
 	}
+	@Override
+	public Items getRandom() {
+		//랜덤 상품 출력, 한개만
+		return getSqlSession().selectOne("ItemsInterface.getRandom");
+	}
+	@Override
+	public List<SalesList> getRecentItem(String id) {
+		//랜덤 상품 출력, 한개만
+		return getSqlSession().selectList("ItemsInterface.getRecentItem",id);
+	}
 	
 	
 	

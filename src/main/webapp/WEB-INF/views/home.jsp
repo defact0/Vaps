@@ -12,7 +12,7 @@
 	<%@include file="/WEB-INF/views/top/menu.jsp"%>
 
    <c:if test="${members.m_auth==0}" var="result">
-  	 <%@include file="/WEB-INF/views/top/firstNormal.jsp"%>
+	   <meta http-equiv='refresh' content='0; url=/firstNormal'> 
    </c:if>
    <c:if test="${members.m_auth==1}" var="result">
   	 <%@include file="/WEB-INF/views/top/firstAdmin.jsp"%>
