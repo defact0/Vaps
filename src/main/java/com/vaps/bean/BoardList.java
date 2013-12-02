@@ -1,11 +1,7 @@
 package com.vaps.bean;
 
 import java.sql.Date;
-/*
- * 변수는 소문자로 하자.
- * db table 변수와 같이 대문자로 똑같이 하면 동작이 안됐다.
- * B_NUM 이라고 db에서 쓰면 Bean에서는 b_num이라고 써야한다.
- */
+
 public class BoardList {
 	private int b_num;
 	private String b_id;
