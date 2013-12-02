@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.vaps.action.BoardListAction;
-import com.vaps.controller.Home;
 import com.vaps.dao.MembersDAO;
 
 
@@ -23,11 +22,12 @@ public class B_del {
 	@Resource(name = "membersDao")
 	private MembersDAO membersDao;
 	
-	private HttpSession session = Home.session;
+	private HttpSession session;
 	
 	// 게시글 삭제
 	@RequestMapping(value = "/boardDelContent")
 	public void boardDelContent(HttpServletRequest req, HttpServletResponse res, Model model) {
+		session = req.getSession();
 		// 게시글 번호를 가져와 사용자 본인 확인or 관리자 확인 후 삭제
 		BoardListAction ba = new BoardListAction(membersDao);
 		try {

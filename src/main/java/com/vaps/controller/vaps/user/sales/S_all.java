@@ -3,6 +3,7 @@ package com.vaps.controller.vaps.user.sales;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,17 +19,19 @@ import com.vaps.dao.ItemsDAO;
 public class S_all {
 	@Resource(name = "itemsDao")
 	private ItemsDAO itemsDAO;
+	private HttpSession session;
 	
 	//판매물품 리스트(고객용)
 	@RequestMapping(value = "/AllItems")
-	public String AllItems(HttpServletRequest req, HttpServletResponse res, Model model) {
+	public String AllItems(HttpServletRequest request, HttpServletResponse res, Model model) {
 		String result = "home";
+		session = request.getSession();
 
 		try {
 			ItemsListAction item = new ItemsListAction(itemsDAO);
-			if (Home.session != null && Home.session.getAttribute("id") != "") {
+			if (session != null && session.getAttribute("id") != "") {
 				model.addAttribute("ilist", item.getItemsList());
-				result = "sales/AllItems";
+				result = "vaps/user/sales/sale_all";
 			}
 
 		} catch (Exception e) {

@@ -3,6 +3,7 @@ package com.vaps.controller.vaps.user.buy;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,15 +19,17 @@ import com.vaps.dao.ItemsDAO;
 public class B_detail {
 	@Resource(name = "itemsDao")
 	private ItemsDAO itemsDAO;
+	private HttpSession session;
 	
 	//주문 기록 상세히 보기
 	@RequestMapping(value = "/buyDetailed")
 	public String buyDetailed(HttpServletRequest request, Model model){
 		String result = "home";
+		session = request.getSession();
 		int code = Integer.parseInt(request.getParameter("code"));
 		try {
 			ItemsListAction item = new ItemsListAction(itemsDAO);
-			if (Home.session != null && Home.session.getAttribute("id") != "") {
+			if (session != null && session.getAttribute("id") != "") {
 				model.addAttribute("buylist", item.getBuyDetailed(code));
 				model.addAttribute("buyCode", item.getBuyDetailed(code).get(0).getS_buy_code()); //판매코드
 				model.addAttribute("buyDate", item.getBuyDetailed(code).get(0).getS_buy_date()); //구입날짜
@@ -37,7 +40,7 @@ public class B_detail {
 				}
 				model.addAttribute("buyMoney", total); //구입금액
 				
-				result = "member/buyDetailed";
+				result = "vaps/user/buy/buy_detail";
 			}
 
 		} catch (Exception e) {

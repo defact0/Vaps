@@ -46,6 +46,6 @@ public class S_today {
 				}
 			}
 		}
-		return "sales/TodayList";
+		return "vaps/user/sales/sale_today";
 	}
 }

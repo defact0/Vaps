@@ -40,7 +40,7 @@
 				</tr>
 				<tr>
 					<td>내용:</td>
-					<td><pre><textarea cols="67" rows="10" name="contents" 
+					<td><pre><textarea cols="72" rows="10" name="contents" 
 							class="inArea">${blist.b_contents}</textarea></pre></td>
 				</tr>
 				<tr>

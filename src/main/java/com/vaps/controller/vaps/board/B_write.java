@@ -10,29 +10,31 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.vaps.action.BoardListAction;
 import com.vaps.bean.BoardList;
-import com.vaps.controller.Home;
 import com.vaps.dao.MembersDAO;
 
 
 @Controller
+@SessionAttributes("members")
 public class B_write {
 	@Resource(name = "membersDao")
 	private MembersDAO membersDao;
 	
-	private HttpSession session = Home.session;
+	private HttpSession session;
 	
 	// 게시글 쓰기 폼
 	@RequestMapping(value = "/boardWriteForm")
 	public String bWrite() {
-		return "board/boardWrite";
+		return "vaps/board/b_write";
 	}
 
 	// 게시글 쓰기(sql 삽입), 등록버튼 눌렀을때
 	@RequestMapping(value = "/boardWrite")
 	public void bWrite(HttpServletRequest request, Model model, HttpServletResponse res) {
+		session = request.getSession();
 		try {
 			// DB로 한글 저장시 깨짐 해결함
 			request.setCharacterEncoding("UTF-8");

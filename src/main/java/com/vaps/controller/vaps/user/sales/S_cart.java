@@ -39,7 +39,7 @@ public class S_cart {
 		}
 		request.setAttribute("totalMoney", totalMoney);
 		request.setAttribute("cartList", cartList);
-		return "sales/CartList";
+		return "vaps/user/sales/sale_cart";
 	}
 	
 	@RequestMapping(value = "/CartListAdd")
@@ -66,6 +66,6 @@ public class S_cart {
 			request.setAttribute("totalMoney", totalMoney);
 			request.setAttribute("cartList", cartList);
 
-		return "sales/CartList";
+		return "vaps/user/sales/sale_cart";
 	}
 }

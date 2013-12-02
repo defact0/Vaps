@@ -14,7 +14,6 @@
 <body>
 	<%@include file="/WEB-INF/views/conf/top/m_menu.jsp"%>
 	<div style="padding: 1px 20px 30px 60px;">
-	<h1>포인트 :${members.m_point }</h1>
 	<h1> 최근 구입한 메뉴</h1>
 	<table width="820" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;'>
 				<tr id="setTd" align="center" height="35">

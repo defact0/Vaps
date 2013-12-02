@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.vaps.action.ItemsListAction;
-import com.vaps.controller.Home;
 import com.vaps.dao.ItemsDAO;
 
 @Controller
@@ -21,20 +21,21 @@ import com.vaps.dao.ItemsDAO;
 public class S_viewContents {
 	@Resource(name = "itemsDao")
 	private ItemsDAO itemsDAO;
+	private HttpSession session;
 	
 	//판매물품 내용(고객용)
 	@RequestMapping(value = "/ViewItemsContent")
-	public String ViewItemsContent(HttpServletRequest req, HttpServletResponse res, Model model) {
-		Home.session = req.getSession();
+	public String ViewItemsContent(HttpServletRequest request, HttpServletResponse res, Model model) {
+		session = request.getSession();
 		ItemsListAction item = new ItemsListAction(itemsDAO);
 		try {
-			req.setCharacterEncoding("UTF-8");
+			request.setCharacterEncoding("UTF-8");
 			res.setContentType("text/html;charset=UTF-8");
 		String i_name=null;
-		String i_num = req.getParameter("num");
+		String i_num = request.getParameter("num");
 
-			if (Home.session != null && Home.session.getAttribute("id") != "") {
-				i_name = req.getParameter("str");
+			if (session != null && session.getAttribute("id") != "") {
+				i_name = request.getParameter("str");
 				model.addAttribute("ilist", item.getContents(i_name)); // 원글 보기
 			}
 
@@ -46,7 +47,7 @@ public class S_viewContents {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "sales/ViewItemsContent";
+		return "vaps/user/sales/sale_view_contents";
 
 	}
 }

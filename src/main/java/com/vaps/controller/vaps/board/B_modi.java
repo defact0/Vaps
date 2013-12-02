@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.vaps.action.BoardListAction;
 import com.vaps.bean.BoardList;
-import com.vaps.controller.Home;
 import com.vaps.dao.MembersDAO;
 
 
@@ -24,7 +23,7 @@ public class B_modi {
 	@Resource(name = "membersDao")
 	private MembersDAO membersDao;
 	
-	private HttpSession session = Home.session;
+	private HttpSession session;
 	
 	// 게시글 수정 폼
 	@RequestMapping(value = "/boardModiContentForm")
@@ -44,7 +43,7 @@ public class B_modi {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "board/boardModify";
+		return "vaps/board/b_modi";
 	}
 
 	// 게시글 수정

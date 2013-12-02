@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.vaps.action.BoardListAction;
-import com.vaps.controller.Home;
 import com.vaps.dao.MembersDAO;
 
 
@@ -20,11 +19,12 @@ public class B_list {
 	@Resource(name = "membersDao")
 	private MembersDAO membersDao;
 	
-	private HttpSession session = Home.session;
+	private HttpSession session;
 	
 	@RequestMapping(value = "/board")
 	public String bList(HttpServletRequest request, Model model) {
 		String result = "home";
+		session = request.getSession();
 
 		try {
 			BoardListAction ba = new BoardListAction(membersDao);
@@ -37,7 +37,7 @@ public class B_list {
 				model.addAttribute("pageNum", pageNum);
 				model.addAttribute("blist", ba.getBoardList(pageNum)); // 게시글
 				model.addAttribute("paging", ba.getPaging(pageNum)); // [1][2]...<-paging
-				result = "board/boardlist";
+				result = "vaps/board/b_list";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

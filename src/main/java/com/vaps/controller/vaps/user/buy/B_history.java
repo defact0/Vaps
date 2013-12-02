@@ -2,7 +2,7 @@ package com.vaps.controller.vaps.user.buy;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.vaps.action.ItemsListAction;
-import com.vaps.controller.Home;
 import com.vaps.dao.ItemsDAO;
 
 @Controller
@@ -18,15 +17,17 @@ import com.vaps.dao.ItemsDAO;
 public class B_history {
 	@Resource(name = "itemsDao")
 	private ItemsDAO itemsDAO;
+	private HttpSession session;
 	
 	//주문기록
 	@RequestMapping(value = "/buyHistory")
 	public String buyHistory(HttpServletRequest request, Model model){
 		String result = "home";
-		String id = (String) Home.session.getAttribute("id");
+		session = request.getSession();
+		String id = (String) session.getAttribute("id");
 		try {
 			ItemsListAction item = new ItemsListAction(itemsDAO);
-			if (Home.session != null && id != "") {
+			if (session != null && id != "") {
 				model.addAttribute("buylist", item.getBuyHistory(id));
 				
 				int total=0;
@@ -35,7 +36,7 @@ public class B_history {
 				}
 				model.addAttribute("buyTotalMoney", total); //누적 구입금액
 				
-				result = "member/buyHistory";
+				result = "vaps/user/buy/buy_history";
 			}
 
 		} catch (Exception e) {

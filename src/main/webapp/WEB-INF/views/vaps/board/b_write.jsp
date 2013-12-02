@@ -38,7 +38,7 @@
 				</tr>
 				<tr>
 					<td>내용:</td>
-					<td><textarea cols="67" rows="10"  name="contents" class="inArea"></textarea></td>
+					<td><textarea cols="72" rows="10"  name="contents" class="inArea"></textarea></td>
 				</tr>
 				<tr>
 					<td colspan=2 align="right"><input class="button" type="submit" value="등록" />
