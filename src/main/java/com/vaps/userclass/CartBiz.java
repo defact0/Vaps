@@ -6,14 +6,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.vaps.bean.Items;
-import com.vaps.home.HomeController;
+import com.vaps.controller.Home;
+
+
 
 public class CartBiz {
 
 	public void addCart(HttpServletRequest request, Items items) {
-		HomeController.session = request.getSession();
+		Home.session = request.getSession();
 		@SuppressWarnings("unchecked")
-		ArrayList<Items> cartList = (ArrayList<Items>)HomeController.session.getAttribute("cartList");	//한 번만 만들기 위해서
+		ArrayList<Items> cartList = (ArrayList<Items>)Home.session.getAttribute("cartList");	//한 번만 만들기 위해서
 		//목록 하나가 있는 cart 객체를 ArrayList 로 받아옴
 		if(cartList == null) { //session에 존재하지 않을 때
 			cartList = new ArrayList<Items>();	// 객체 새로 생성
@@ -40,7 +42,7 @@ public class CartBiz {
 			
 			cartList.add(cart);
 		}
-		HomeController.session.setAttribute("cartList", cartList);	//공유
+		Home.session.setAttribute("cartList", cartList);	//공유
 	}
 
 	public ArrayList<Items> getCartList(HttpServletRequest request) {

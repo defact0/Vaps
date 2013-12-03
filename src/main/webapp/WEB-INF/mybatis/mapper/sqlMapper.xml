@@ -63,4 +63,12 @@
 	<update id="setUpdateCount" parameterType="Integer">
 		UPDATE BOARD SET B_READCOUNT=B_READCOUNT+1 WHERE B_NUM=#{b_num}
 	</update>
+	
+	<select id="getReply" resultType="reply" parameterType="Integer">
+		SELECT * FROM RLIST WHERE BNUM=#{bnum}
+	</select>
+	
+	<insert id="rInsert" parameterType="reply">
+		INSERT INTO R VALUES(REPLY_SEQ.NEXTVAL,#{bnum},#{rcontents},#{rid},DEFAULT)
+	</insert>
 </mapper>

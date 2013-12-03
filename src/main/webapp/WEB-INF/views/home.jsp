@@ -9,17 +9,29 @@
 <title>Vaps shopping mall</title>
 </head>
 <body>
-	<%@include file="/WEB-INF/views/top/menu.jsp"%>
+ <!--  
+	메뉴	: m_menu
+	----------
+	일반 	: firstNormal
+	관리자 	: m_admin
+	게스트	: m_guest
+-->
+	<%@include file="/WEB-INF/views/conf/top/m_menu.jsp"%>
 
    <c:if test="${members.m_auth==0}" var="result">
-	   <meta http-equiv='refresh' content='0; url=/firstNormal'> 
+	   <meta http-equiv='refresh' content='0; url=/m_normal'> 
    </c:if>
    <c:if test="${members.m_auth==1}" var="result">
-  	 <%@include file="/WEB-INF/views/top/firstAdmin.jsp"%>
+  	 <%@include file="/WEB-INF/views/conf/top/m_admin.jsp"%>
    </c:if>
    <c:if test="${members.m_auth==null}" var="result">
-  	 <%@include file="/WEB-INF/views/top/firstGuest.jsp"%>
+  	 <%@include file="/WEB-INF/views/conf/top/m_guest.jsp"%>
    </c:if>   
 
 </body>
 </html>
+
+<%-- 
+	버튼 CSS 관련 사용법을 얻을 수 있다.
+	http://www.red-team-design.com/wp-content/uploads/2011/09/awesome-css3-buttons.html
+ --%>
