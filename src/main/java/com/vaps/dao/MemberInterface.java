@@ -2,8 +2,10 @@ package com.vaps.dao;
 
 import java.util.List;
 import java.util.Map;
+
 import com.vaps.bean.BoardList;
 import com.vaps.bean.Members;
+import com.vaps.bean.ReplyList;
 
 
 public interface MemberInterface {
@@ -18,4 +20,6 @@ public interface MemberInterface {
 	public BoardList getContentsModi(int b_num);
 	public int setContentsModi(BoardList wr);
 	public int setUpdateCount(int b_num);
+	public List<ReplyList> getReply(int bnum);
+	public int rInsert(ReplyList rl);
 }

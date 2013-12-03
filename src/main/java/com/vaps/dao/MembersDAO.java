@@ -2,9 +2,12 @@ package com.vaps.dao;
 
 import java.util.List;
 import java.util.Map;
+
 import org.mybatis.spring.support.SqlSessionDaoSupport;
+
 import com.vaps.bean.BoardList;
 import com.vaps.bean.Members;
+import com.vaps.bean.ReplyList;
 
 public class MembersDAO extends SqlSessionDaoSupport implements MemberInterface {
 	
@@ -80,5 +83,18 @@ public class MembersDAO extends SqlSessionDaoSupport implements MemberInterface 
 	public int setUpdateCount(int b_num) {
 		// board 조회수 증가
 		return getSqlSession().update("MembersInterface.setUpdateCount", b_num);
+	}
+
+	@Override
+	public List<ReplyList> getReply(int bnum) {
+		// 리플을 읽어 오기
+		return getSqlSession().selectList("MembersInterface.getReply", bnum);
+	}
+	
+	@Override
+	public int rInsert(ReplyList rl) {
+		// 리플을 입력
+		// insert성공 1 실패 0
+		return getSqlSession().insert("MembersInterface.rInsert", rl);
 	}
 }

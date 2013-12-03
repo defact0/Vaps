@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.vaps.action.MembersAction;
 import com.vaps.bean.Members;
-import com.vaps.controller.Home;
 import com.vaps.dao.MembersDAO;
 import com.vaps.userclass.EncryptionEncoding;
 
@@ -28,7 +27,7 @@ public class M_login {
 	@Resource(name = "EncryptionEncoding")
 	private EncryptionEncoding ee;
 	
-	private HttpSession session = Home.session;
+	private HttpSession session;
 	
 	@RequestMapping(value = "/login")
 	public String mLogin() {
@@ -53,7 +52,6 @@ public class M_login {
 				session.setAttribute("id", members.getM_id()); // 세션에 아이디 저장, name=id
 				session.setAttribute("auth", members.getM_auth()); // 세션에 권한 저장, name=auth
 				model.addAttribute("members", members);
-				//boardList(request, model); // 로그인 뒤에 게시판으로 직행하지 않게함
 			} else {
 				if (session != null) {
 					session = null;

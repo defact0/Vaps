@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class M_logout {
 	@RequestMapping(value="/logout")
 	public String mLogout(){
-		return "login/logout";
+		return "conf/member/m_logout";
 	}
 }

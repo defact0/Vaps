@@ -7,6 +7,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Vaps shopping mall</title>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	// 리플레이 전송에 관한
+	function replyInsert(id, num) {
+		var con= document.rFrm.contents.value; // 답글 내용
+		var parameter = escape(encodeURIComponent(con));
+		var param= "id="+id+"&bnum="+num+"&contents="+parameter;
+		$('#rTable').load("/replyInsert",param,function(data){ });
+		// load는 url 이다. param에 있는 쿼리로 전송, replyInsert컨트롤러 작성, 저장된 결과를 data로 뿌림
+		// data가 replylistajax이다. function(data){}은 필수다!!!!
+	}
+
+</script>
 <link rel="styleSheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/docStyle.css" />
 </head>
@@ -45,7 +58,26 @@
 			</td>
 		</tr>
 	</table>
-	<br>
+	
+	<form name="rFrm">
+		<table>
+			<tr>
+				<td><textarea cols="91" rows="1"  name="contents" class="inArea"></textarea></td>
+				<td><input type="button" class="button" onclick="replyInsert('${user}','${blist.b_num}')"
+					value="확인"></td>
+			</tr>
+		</table>
+	</form>
+
+	<table id="rTable" width="820" border="0" cellspacing="0" cellpadding="0">
+		<c:forEach var="rlist" items="${rlist}">
+			<tr height="25" align="center">
+				<td width="100">${rlist.rid}</td>
+				<td width="320">${rlist.rcontents}</td>
+				<td width="150">${rlist.rdate}</td>
+			</tr>
+		</c:forEach>
+	</table>
 </div>
 </body>
 </html>

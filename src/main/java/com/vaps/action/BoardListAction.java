@@ -1,7 +1,9 @@
 package com.vaps.action;
 
 import java.util.List;
+
 import com.vaps.bean.BoardList;
+import com.vaps.bean.ReplyList;
 import com.vaps.dao.MembersDAO;
 import com.vaps.userclass.Paging;
 
@@ -76,5 +78,14 @@ public class BoardListAction {
 		str = str.replaceAll("\r\n", "<br>");
 		str = str.replaceAll("\u0020", "&nbsp;");
 		wr.setB_contents(str);
+	}
+	
+	//reply 기능
+	public List<ReplyList> getReplyList(int bNum) {
+		return dao.getReply(bNum);
+	}
+
+	public int replyInsert(ReplyList rl) {
+		return dao.rInsert(rl);
 	}
 }

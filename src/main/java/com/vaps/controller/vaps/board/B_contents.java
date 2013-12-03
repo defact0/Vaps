@@ -31,6 +31,8 @@ public class B_contents {
 				int bnum = Integer.parseInt(request.getParameter("idx"));
 				ba.setUpdateCount(bnum);//조회수 증가
 				model.addAttribute("blist", ba.getContents(bnum)); // 원글 보기
+				model.addAttribute("rlist", ba.getReplyList(bnum)); //댓글 보기
+				model.addAttribute("user", session.getAttribute("id")); //현재 사용자
 				// 세션에 게시물 번호 저장, name=idx
 				session.setAttribute("idx", Integer.parseInt(request.getParameter("idx"))); 
 				result = "vaps/board/b_contents";
