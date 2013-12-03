@@ -66,7 +66,6 @@ public class B_biz{
 	}
 
 	// 주문관련 로직(sales)
-		@SuppressWarnings("null")
 		@RequestMapping(value = "/itemsPurchase")
 		public void itemsPurchase(HttpServletRequest request,HttpServletResponse response) throws IOException{
 			request.setCharacterEncoding("UTF-8");

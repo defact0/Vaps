@@ -43,14 +43,23 @@
 	<%@include file="/WEB-INF/views/conf/top/m_menu.jsp"%>
 <br/>
 	<div style="padding: 1px 20px 30px 60px;">
-		<img src="/images/members/signUp.jpg"/>
 		<form action="memJoin" name="joinFrm" method="post"
 			onsubmit="return formCheck();">
+			<div>
+			<table width="820" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td id="setTd" align="left" height="40" colspan="3"><font
+							size="6"> Vaps 가입 </font></td>
+					</tr>
+					<tr height="10"><td></td></tr>
+				<tr>
+			</table>
+			</div>
+			<div style="float: left;">
 			<table>
 				<tr>
-					<td>아이디:</td>
-					<td><input class="intxt" type="text" name="id" /></td>
-					<td>
+					<td width="65" align="left">아이디:</td>
+					<td align="left"><input class="intxt" type="text" name="id" />
 					<input type="button" name="confirm_id" value="아이디 확인" 
 								onclick="openConfirmId(this.form)" class="buttonCh"/>
 					</td>
@@ -71,13 +80,22 @@
 					<td>주소:</td>
 					<td><input class="intxt" type="text" name="addr" /></td>
 				</tr>
+			</table>
+			</div>
+			<div style="float: left;">
+			<table border="0" style="PADDING-RIGHT: 1px; PADDING-LEFT: 1px; PADDING-BOTTOM:1px; PADDING-TOP: 1px">
 				<tr>
-					<td colspan=2 align="right">
-						<input class="button" type="submit" value="회원가입" />
-						<a href="javascript:location.href='/'" class="button">되돌아가기</a>
+					<td align="left" style="padding-left: 0px;">
+						<input class="button" id="mJoingSubmit" type="submit" value="회원가입" />
+					</td>
+				</tr>
+				<tr>
+					<td align="left" style="padding-left: 0px;">
+						<a href="javascript:location.href='/'" class="button" id="mJoingBack">　 메인 페이지로 이동</a>
 					</td>
 				</tr>
 			</table>
+			</div>
 		</form>
 	</div>
 

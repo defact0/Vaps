@@ -5,16 +5,13 @@ import java.util.ArrayList;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.vaps.action.ItemsListAction;
 import com.vaps.bean.Items;
-import com.vaps.controller.Home;
 import com.vaps.dao.ItemsDAO;
 import com.vaps.userclass.CartBiz;
 

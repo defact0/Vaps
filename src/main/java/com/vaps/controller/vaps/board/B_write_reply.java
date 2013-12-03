@@ -4,7 +4,6 @@ import java.net.URLDecoder;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +20,6 @@ import com.vaps.dao.MembersDAO;
 public class B_write_reply {
 	@Resource(name = "membersDao")
 	private MembersDAO membersDao;
-	private HttpSession session;
 	
 	@RequestMapping(value= "/replyInsert")
 	public String rInsert(HttpServletRequest request, Model model) {

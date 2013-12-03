@@ -26,57 +26,75 @@
 </script>
 </head>
 <body margin="0" padding="0">
+
 	<div style="padding: 1px 20px 30px 60px;">
+
 		</br>
-		<form action="access" name="LogFrm" method="post"
-			onsubmit="return formCheck();">
-			<table border="0" cellspacing="0" cellpadding="0">
+		<div style="float: left;">
+			<form action="access" name="LogFrm" method="post"
+				onsubmit="return formCheck();">
+				<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td id="setTd" align="left" height="40" colspan="3"><font
+							size="6"> Vaps 로그인 </font></td>
+					</tr>
+					<tr>
+						<td width="70">아이디:</td>
+						<td width="100"><input class="intxt" type="text" name="id" /></td>
+						<td width="70"><input class="button" id="mGuestButton"
+							type="submit" value="로그인 "></td>
+					</tr>
+					<tr>
+						<td>비밀번호:</td>
+						<td><input class="intxt" type="password" name="pwd" /></td>
+						<td><a href="javascript:location.href='/join'" class="button">회원가입</a></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<div style="float: left; padding: 0px 0px 0px 20px;">
+			<form action="access" name="LogFrm" method="post"
+				onsubmit="return formCheck();">
+				<table width="395" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td id="setTd" align="left" height="40" colspan="3"><font
+							size="6"> Vaps 메뉴</font></td>
+					</tr>
+					<tr>
+						<td>뭘 넣을까?</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		</br>
+		<div style="padding: 120px 20px 30px 0px;">
+			<table width="820" border="1" cellspacing="0" cellpadding="0"
+				style='border-collapse: collapse; border: none;'>
 				<tr>
-					<td id="setTd" align="left" height="35" colspan="3"> Vaps
-						SignIn</td>
+					<td id="setTd" align="left" height="40" colspan="3"
+						style="border: 0px;"><font size="6"> Vaps 판매중인 메뉴!!</font></td>
 				</tr>
 				<tr>
-					<td width="70">아이디:</td>
-					<td width="100"><input class="intxt" type="text" name="id" /></td>
-					<td width="70"><input class="button" id="mGuestButton"
-						type="submit" value="로그인 "></td>
+					<td rowspan="4" width="300"><img src="/upload/${ranDom.i_pic}"
+						width="300" height="200" /></td>
+					<td align="center" id="setTd" width="80">이름</td>
+					<td>${ranDom.i_name}</td>
 				</tr>
 				<tr>
-					<td>비밀번호:</td>
-					<td><input class="intxt" type="password" name="pwd" /></td>
-					<td><a href="javascript:location.href='/join'" class="button">회원가입</a></td>
+					<td align="center" id="setTd">가격</td>
+					<td>${ranDom.i_price}원</td>
+				</tr>
+				<tr>
+					<td align="center" id="setTd">수량</td>
+					<td>${ranDom.is_count}개</td>
+				</tr>
+				<tr>
+					<td align="center" id="setTd">설명</td>
+					<td>${ranDom.i_description}</td>
 				</tr>
 			</table>
-		</form>
+		</div>
 
-</br>
-		<table width="820" border="1" cellspacing="0" cellpadding="0"
-			style='border-collapse: collapse; border: none;'>
-			<tr>
-				<td id="setTd" align="left" height="35" colspan="3"> Vaps
-					Menu!</td>
-			</tr>
-			<tr>
-				<td rowspan="4" width="300"><img src="/upload/${ranDom.i_pic}"
-					width="300" height="200" /></td>
-				<td align="center" id="setTd" width="80">이름</td>
-				<td>${ranDom.i_name}</td>
-			</tr>
-			<tr>
-				<td align="center" id="setTd">가격</td>
-				<td>${ranDom.i_price}원</td>
-			</tr>
-			<tr>
-				<td align="center" id="setTd">수량</td>
-				<td>${ranDom.is_count}개</td>
-			</tr>
-			<tr>
-				<td align="center" id="setTd">설명</td>
-				<td>${ranDom.i_description}</td>
-			</tr>
-		</table>
 	</div>
-
-
 </body>
 </html>

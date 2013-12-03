@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.vaps.action.ItemsListAction;
-import com.vaps.controller.Home;
 import com.vaps.dao.ItemsDAO;
 
 @Controller

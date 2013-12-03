@@ -35,24 +35,48 @@
 	각각의 여백을 지정하지 않고, 하나만 쓰면 사방에 동일한 여백이 적용됩니다.
  --%>
 	<div style="padding: 1px 20px 30px 60px;">
-		<img src="/images/members/signIn.jpg"/>
 		<form action="access" name="LogFrm" method="post"
 			onsubmit="return formCheck();">
+			<div>
+			<table width="820" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td id="setTd" align="left" height="40" colspan="3"><font
+							size="6"> Vaps 로그인 </font></td>
+					</tr>
+					<tr height="10"><td></td></tr>
+			</table>
+			</div>
+			<div style="float: left;">
+			<table>
+					<tr>
+						<td width="65" align="left">아이디:</td>
+						<td width="100" align="left"><input class="intxt" type="text" name="id" /></td>
+					</tr>
+					<tr>
+						<td>비밀번호:</td>
+						<td><input class="intxt" type="password" name="pwd" /></td>
+					</tr>
+			</table>
+			</div>
+			<div style="float: left;">
 			<table>
 				<tr>
-					<td>아이디:</td>
-					<td><input class="intxt" type="text" name="id" /></td>
-				</tr>
-				<tr>
-					<td>비밀번호:</td>
-					<td><input class="intxt" type="password" name="pwd" /></td>
-				</tr>
-				<tr>
-					<td colspan=2><input class="button" type="submit" value="로그인">
-						<a href="javascript:location.href='/join'" class="button">회원가입</a>
-					</td>
+					<td align="left"><input class="button" id="mLoginButton"
+							type="submit" value="로그인 "></td>
 				</tr>
 			</table>
+			</div>
+		</form>
+		<form action="/join" name="back" method="post"
+			onsubmit="return formCheck();">
+		<div style="float: left;">
+			<table>
+				<tr>
+					<td align="left"><input class="button" id="mLoginJoinButton"
+							type="submit" value="회원가입"></td>
+				</tr>
+			</table>
+			</div>
 		</form>
 	</div>
 

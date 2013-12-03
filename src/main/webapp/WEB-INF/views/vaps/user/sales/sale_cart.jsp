@@ -49,8 +49,7 @@ A:hover {COLOR:white; text-decoration:underline}
 		<img src="/images/sales/CartList.jpg"/>
 
 		<%
-			ArrayList<Items> cartList = (ArrayList<Items>) request
-					.getAttribute("cartList");
+			ArrayList<Items> cartList = (ArrayList<Items>) request.getAttribute("cartList");
 			int totalMoney = (Integer) request.getAttribute("totalMoney");
 
 			if (cartList == null || cartList.size() == 0) {
