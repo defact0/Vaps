@@ -53,13 +53,12 @@ public class M_join {
 	//아이디 중복체크
 	@RequestMapping(value="/MemberIDCheckAction")
 	public String idchck(HttpServletRequest request, Model model) throws Exception{
-		String result="./login/member_idchk";
 		//Map<String,String> map=new HashMap<String, String>();
 		//map.put("id", request.getParameter("id"));
 		int x=0;
 		x=membersDao.confirmId(request.getParameter("id"));
 	    model.addAttribute("xx", x);
 	    
-		return result;
+		return "conf/member/m_id_chk";
 	}
 }

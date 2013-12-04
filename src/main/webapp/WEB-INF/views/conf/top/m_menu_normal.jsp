@@ -28,11 +28,7 @@
 
 		<li><a href="/">HOME</a></li>
 
-		<li class="sub"><a href="#">ABOUT</a>
-			<ul>
-				<li><a href="/what">VAPS(밥스)란?</a></li>
-				<li><a href="/developer">개발자 소개</a></li>
-			</ul></li>
+		<li><a href="/notice">공지사항</a></li>
 			
 		<li class="sub"><a href="/AllItems">Shopping</a>
 			<ul>
@@ -45,7 +41,13 @@
 			</ul></li>
 			
 		<li><a href="/board">Free board</a></li>
-		
+
+		<li class="sub"><a href="#">ABOUT</a>
+			<ul>
+				<li><a href="/what">VAPS(밥스)란?</a></li>
+				<li><a href="/developer">개발자 소개</a></li>
+			</ul></li>
+					
 		<li class="sub"><a href="#">${members.m_nick } 님</a>
 			<ul>
 				<li><a href="/info">나의 정보</a></li>

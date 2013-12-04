@@ -16,24 +16,24 @@ public class MembersDAO extends SqlSessionDaoSupport implements MemberInterface 
 	@Override
 	public int memInsert(Members mb) {
 		// 회원가입 sql
-		return getSqlSession().insert("MembersInterface.memInsert", mb);
+		return getSqlSession().insert("JoinSetInfo.insert", mb);
 	}
 		
 	public int confirmId(String id){
 		// 회원가입 시 아이디 중복확인
-		return getSqlSession().selectOne("MembersInterface.confirmId", id);
+		return getSqlSession().selectOne("JoinGetChk.select", id);
 	}
 	
 	@Override
 	public int getLoginResult(Map<String, String> map) {
 		// 로그인시 id와 pwd 확인 과정
-		return getSqlSession().selectOne("MembersInterface.getLoginResult", map);
+		return getSqlSession().selectOne("LoginGetChk.select", map);
 	}
 
 	@Override
 	public Members getMemberInfo(String id) {
 		// id에 해당하는 정보를 가져오기
-		return getSqlSession().selectOne("MembersInterface.getMemberInfo", id);
+		return getSqlSession().selectOne("LoginGetInfo.select", id);
 	}
 	
 //-----------------------------
@@ -41,60 +41,60 @@ public class MembersDAO extends SqlSessionDaoSupport implements MemberInterface 
 	@Override
 	public List<BoardList> getBoardList(int pageNum) {
 		// board list get
-		return getSqlSession().selectList("MembersInterface.getBoardList", pageNum);
+		return getSqlSession().selectList("BoardGetList.select", pageNum);
 	}
 
 	@Override
 	public int getPageCount() {
 		// board list paging
-		return getSqlSession().selectOne("MembersInterface.getPageCount");
+		return getSqlSession().selectOne("BoardGetPageCNT.select");
 	}
 
 	@Override
 	public BoardList getContents(int b_num) {
 		// board 게시글 보기
-		return getSqlSession().selectOne("MembersInterface.getContents", b_num);
+		return getSqlSession().selectOne("BoardGetContents.select", b_num);
 	}
 	
 	public BoardList getContentsModi(int b_num) {
 		// board 게시글 내용 한글 수정폼으로 전달
-		return getSqlSession().selectOne("MembersInterface.getContents", b_num);
+		return getSqlSession().selectOne("BoardGetContents.select", b_num);
 	}
 	
 	@Override
 	public int setContentsModi(BoardList wr) {
 		// board 게시글 내용 수정 과정 처리
-		return getSqlSession().update("MembersInterface.setContentsModi", wr);
+		return getSqlSession().update("BoardSetModi.update", wr);
 	}
 
 	@Override
 	public int wrBoard(BoardList wr) {
 		// board 게시글 쓰기
-		return getSqlSession().insert("MembersInterface.setContents", wr);
+		return getSqlSession().insert("BoardSetContetns.insert", wr);
 	}
 
 	@Override
 	public int delContents(int b_num) {
 		// board 게시글 삭제
-		return getSqlSession().delete("MembersInterface.delContents", b_num);
+		return getSqlSession().delete("BoardDelContents.delete", b_num);
 	}
 
 	@Override
 	public int setUpdateCount(int b_num) {
 		// board 조회수 증가
-		return getSqlSession().update("MembersInterface.setUpdateCount", b_num);
+		return getSqlSession().update("BoardSetUpCNT.update", b_num);
 	}
 
 	@Override
 	public List<ReplyList> getReply(int bnum) {
 		// 리플을 읽어 오기
-		return getSqlSession().selectList("MembersInterface.getReply", bnum);
+		return getSqlSession().selectList("BoardGetReply.select", bnum);
 	}
 	
 	@Override
 	public int rInsert(ReplyList rl) {
 		// 리플을 입력
 		// insert성공 1 실패 0
-		return getSqlSession().insert("MembersInterface.rInsert", rl);
+		return getSqlSession().insert("BoardSetReply.insert", rl);
 	}
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ItemsGetList">
+	<resultMap type="items" id="items">
+		<result property="I_DESCRIPTION" column="I_DESCRIPTION"
+			jdbcType="NCLOB" javaType="java.lang.String" />
+		<result property="I_PIC" column="I_PIC" jdbcType="BLOB"
+			javaType="java.lang.String" />
+	</resultMap>
+	<resultMap type="al" id="al" />
+	<resultMap type="Map" id="Map" />
+
+	<select id="select" resultType="items">
+		SELECT * 
+		  FROM ITEMS
+	</select>
+
+</mapper>

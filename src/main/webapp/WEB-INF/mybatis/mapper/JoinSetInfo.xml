@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="JoinSetInfo">
+	<resultMap type="members" id="members" />
+	<resultMap type="board" id="board">
+		<result property="bcontents" column="BCONTENTS" jdbcType="NCLOB" javaType="java.lang.String" /> 
+		<result property="bdate" column="BDATE" jdbcType="DATE" javaType="java.sql.Date" /> 
+	</resultMap>
+	<resultMap type="al" id="al" />
+	<resultMap type="Map" id="Map" />
+
+	<!-- 회원가입 sql -->
+	<insert id="insert" parameterType="members">
+		INSERT INTO M VALUES(#{m_id}, #{m_nick}, #{m_pwd}, #{m_phone}, #{m_addr}, default, default)
+	</insert>
+</mapper>

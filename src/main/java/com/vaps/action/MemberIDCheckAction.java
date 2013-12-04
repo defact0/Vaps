@@ -13,7 +13,7 @@ public abstract class MemberIDCheckAction implements Action{
 		int check=membersdao.confirmId(id);	
 		request.setAttribute("id", id);
 		request.setAttribute("check", check);
-		forward.setPath("./member_idchk.jsp"); 			
+		forward.setPath("./m_id_chk.jsp"); 			
 		return forward;
 	}
 }

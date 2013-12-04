@@ -38,6 +38,14 @@
 			
 		<li><a href="/board">free board</a></li>
 		
+		<li class="sub"><a href="#">notice manage</a>
+			<ul>
+				<li><a href="/notice">공지사항</a></li>
+				<li><a href="/noticeWrite">공지등록</a></li>
+				<li><a href="/noticeModi">공지수정</a></li>
+				<li><a href="/noticeDel">인기삭제</a></li>
+			</ul></li>
+		
 		<li class="sub"><a href="#">ABOUT</a>
 			<ul>
 				<li><a href="/what">VAPS(밥스)란?</a></li>
