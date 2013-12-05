@@ -1,10 +1,13 @@
 package com.vaps.controller.conf.member;
 
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -35,7 +38,7 @@ public class M_login {
 	}
 	
 	@RequestMapping(value = "/access")
-	public String mInfo(HttpServletRequest request, Model model) throws Exception {
+	public String mInfo(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
 		String result = "home";
 
 		Members members = new Members();
@@ -51,7 +54,8 @@ public class M_login {
 				session = request.getSession();
 				session.setAttribute("id", members.getM_id()); // 세션에 아이디 저장, name=id
 				session.setAttribute("auth", members.getM_auth()); // 세션에 권한 저장, name=auth
-				model.addAttribute("members", members);
+				
+				 model.addAttribute("members", members);
 			} else {
 				if (session != null) {
 					session = null;

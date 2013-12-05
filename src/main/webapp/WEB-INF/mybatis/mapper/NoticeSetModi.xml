@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="NoticeSetModi">
+	<resultMap type="notice" id="notice">
+		<result property="n_contents" column="N_CONTENTS" jdbcType="NCLOB" javaType="java.lang.String" /> 
+		<result property="n_date" column="N_DATE" jdbcType="DATE" javaType="java.sql.Date" /> 
+	</resultMap>
+	<resultMap type="al" id="al" />
+	<resultMap type="Map" id="Map" />
+
+	<update id="update" parameterType="notice">
+		UPDATE NOTICE 
+		   SET N_SUB=#{n_sub}
+			 , N_CONTENTS=#{n_contents} 
+	     WHERE N_NUM=#{n_num}
+	</update>
+</mapper>

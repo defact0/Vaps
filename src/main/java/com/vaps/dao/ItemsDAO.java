@@ -9,6 +9,7 @@ import org.springframework.jdbc.support.lob.LobHandler;
 import com.vaps.bean.Items;
 import com.vaps.bean.SalesList;
 
+
 public class ItemsDAO extends SqlSessionDaoSupport implements ItemsInterface {
 	
 	@Autowired

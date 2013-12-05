@@ -7,19 +7,30 @@ import com.vaps.bean.BoardList;
 import com.vaps.bean.Members;
 import com.vaps.bean.ReplyList;
 
-
 public interface MemberInterface {
 	public int getLoginResult(Map<String, String> map);
+
 	public Members getMemberInfo(String id);
+
 	public List<BoardList> getBoardList(int pageNum);
+
 	public int getPageCount();
+
 	public BoardList getContents(int b_num);
+
 	public int memInsert(Members mb);
+
 	public int wrBoard(BoardList wr);
+
 	public int delContents(int b_num);
+
 	public BoardList getContentsModi(int b_num);
+
 	public int setContentsModi(BoardList wr);
+
 	public int setUpdateCount(int b_num);
+
 	public List<ReplyList> getReply(int bnum);
+
 	public int rInsert(ReplyList rl);
 }

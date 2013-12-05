@@ -26,6 +26,10 @@
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 	
+	<bean id="noticeDao" class="com.vaps.dao.NoticeDAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
 	<bean id="itemsDao" class="com.vaps.dao.ItemsDAO">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>

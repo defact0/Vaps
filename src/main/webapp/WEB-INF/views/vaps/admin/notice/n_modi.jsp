@@ -28,25 +28,24 @@
 </head>
 <body>
 <%@include file="/WEB-INF/views/conf/top/m_menu.jsp"%>
-	<form action="/boardModiContent?id=${blist.b_id}" name="modiFrm" method="post"
+	<form action="/noticeModiSet?id=${nlist.n_id}" name="modiFrm" method="post"
 		onsubmit="return formCheck();">
 		<div style="padding: 1px 20px 30px 60px;">
-			<img src="/images/members/FreeBoard.jpg"/>
 			<table>
 				<tr>
 					<td>제목:</td>
 					<td><input class="inSub" type="text" name="sub" class="button"
-						value="${blist.b_sub}" /></td>
+						value="${nlist.n_sub}" /></td>
 				</tr>
 				<tr>
 					<td>내용:</td>
 					<td><pre><textarea cols="72" rows="10" name="contents" 
-							class="inArea">${blist.b_contents}</textarea></pre></td>
+							class="inArea">${nlist.n_contents}</textarea></pre></td>
 				</tr>
 				<tr>
 					<td colspan=2 align="right">
 						<input type="submit" class="button" value="수정" />
-					 	<a href="/board" class="button">취소</a>
+					 	<a href="/notice" class="button">취소</a>
 					 </td>
 				</tr>
 			</table>

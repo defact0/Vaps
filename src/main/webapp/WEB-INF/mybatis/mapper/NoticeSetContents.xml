@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="NoticeSetContents">
+	<resultMap type="notice" id="notice">
+		<result property="n_contents" column="N_CONTENTS" jdbcType="NCLOB" javaType="java.lang.String" /> 
+		<result property="n_date" column="N_DATE" jdbcType="DATE" javaType="java.sql.Date" /> 
+	</resultMap>
+	<resultMap type="al" id="al" />
+	<resultMap type="Map" id="Map" />
+
+	<insert id="insert" parameterType="notice">	
+		INSERT INTO NOTICE 
+		     VALUES(NOTICE_SEQ.NEXTVAL
+		          , #{n_id}
+		          , #{n_sub}
+		          , #{n_contents}
+		          , DEFAULT
+		          , DEFAULT
+		          )
+	</insert>
+</mapper>

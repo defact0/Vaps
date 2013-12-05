@@ -28,8 +28,7 @@
 <body>
 	<%@include file="/WEB-INF/views/conf/top/m_menu.jsp"%>
 	<div style="padding: 1px 20px 30px 60px;">
-		<img src="/images/members/FreeBoard.jpg"/>
-		<form action="/boardWrite" name="writeFrm" method="post"
+		<form action="/noticeWriteSet" name="writeFrm" method="post"
 			onsubmit="return formCheck();">
 			<table>
 				<tr>
@@ -42,7 +41,7 @@
 				</tr>
 				<tr>
 					<td colspan=2 align="right"><input class="button" type="submit" value="등록" />
-					<a href="/board" class="button">취소</a></td>
+					<a href="/notice" class="button">취소</a></td>
 				</tr>
 			</table>
 		</form>
